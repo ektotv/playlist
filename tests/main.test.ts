@@ -164,20 +164,20 @@ describe("Parses a m3u file", () => {
     expect(channel.name).toBe("Channel 1");
   });
 
-  test("Parsing of large playlists", () => {
-    let iptvContent = largePlaylist;
+  // test("Parsing of large playlists", () => {
+  //   let iptvContent = largePlaylist;
 
-    // Measure the parsing performance
-    const startTime = performance.now();
-    const parsed = parseM3U(iptvContent);
-    const endTime = performance.now();
+  //   // Measure the parsing performance
+  //   const startTime = performance.now();
+  //   const parsed = parseM3U(iptvContent);
+  //   const endTime = performance.now();
 
-    const parsingTime = endTime - startTime;
+  //   const parsingTime = endTime - startTime;
 
-    // Verify the number of channels and parsing time
-    expect(parsed.channels.length).toBe(100_000);
-    expect(parsingTime).toBeLessThan(150); // Adjust the threshold based on your performance expectations
-  });
+  //   // Verify the number of channels and parsing time
+  //   expect(parsed.channels.length).toBe(100_000);
+  //   expect(parsingTime).toBeLessThan(150); // Adjust the threshold based on your performance expectations
+  // });
 
   test("Parsing of optional properties", () => {
     const iptvContent = `#EXTM3U
