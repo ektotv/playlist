@@ -1,5 +1,11 @@
 # @iptv/playlist
 
+## 0.0.2
+
+### Patch Changes
+
+- [`cfa2bf5`](https://github.com/ektotv/playlist/commit/cfa2bf549c9daece49727dba82d476f4c328b800) Thanks [@evoactivity](https://github.com/evoactivity)! - Update vitest and use new v8 coverage tool
+
 ## 0.0.1
 
 ### Patch Changes
