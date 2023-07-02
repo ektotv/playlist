@@ -11,9 +11,9 @@ An extremely fast M3U playlist parser and generator for Node and the browser. <b
 ---
 
 [![npm](https://img.shields.io/npm/v/@iptv/playlist?style=flat-square)](https://www.npmjs.com/package/@iptv/playlist)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ektotv/M3U/ci.yml?branch=main&style=flat-square)](https://github.com/ektotv/M3U/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/evoactivity/4b433bda8a479155a5a36b1a8341b97c/raw/iptv_M3U_coverage.json&style=flat-square)](https://github.com/ektotv/M3U/tree/main/tests)
-[![GitHub](https://img.shields.io/github/license/ektotv/M3U?style=flat-square)](LICENSE.md)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ektotv/playlist/ci.yml?branch=main&style=flat-square)](https://github.com/ektotv/playlist/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/evoactivity/4b433bda8a479155a5a36b1a8341b97c/raw/iptv_M3U_coverage.json&style=flat-square)](https://github.com/ektotv/playlist/tree/main/tests)
+[![GitHub](https://img.shields.io/github/license/ektotv/playlist?style=flat-square)](LICENSE.md)
 
 </div>
 
