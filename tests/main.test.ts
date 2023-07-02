@@ -10,9 +10,9 @@ const commentsFileAsString = fs.readFileSync(`./tests/fixtures/comments.m3u8`, {
   encoding: "utf-8",
 });
 
-const largePlaylist = fs.readFileSync(`./tests/fixtures/large.m3u8`, {
-  encoding: "utf-8",
-});
+// const largePlaylist = fs.readFileSync(`./tests/fixtures/large.m3u8`, {
+//   encoding: "utf-8",
+// });
 
 describe("Write a m3u file", () => {
   const example = {
