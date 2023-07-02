@@ -1,0 +1,15 @@
+#EXTM3U x-tvg-url="https://i.mjh.nz/Plex/all.xml.gz"
+#EXTINF:-1 tvg-id="Channel1" tvg-name="Channel One" tvg-language="English" group-title="News",Channel 1
+http://server:port/channel1
+#EXTINF:-1 tvg-id="Channel2" tvg-name="Channel Two" tvg-language="English" group-title="Sports",Channel 2
+http://server:port/channel2
+
+# This is a comment
+# You can add comments in the playlist file
+# Comments start with the '#' character and continue until the end of the line
+
+#EXTINF:-1 tvg-id="Channel3" tvg-name="Channel Three" tvg-language="English,French" group-title="Movies",Channel 3
+http://server:port/channel3
+
+
+

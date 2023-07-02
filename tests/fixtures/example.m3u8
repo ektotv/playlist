@@ -1,0 +1,103 @@
+#EXTM3U x-tvg-url="http://195.154.221.171/epg/guidealbania.xml.gz"
+#EXTINF:-1 tvg-id="Channel1" tvg-name="Channel 1" tvg-language="English" group-title="News",Channel 1
+http://server:port/channel1
+  #EXTINF: -1 tvg-id="Channel2"    tvg-name="Channel 2"    tvg-language="English"        tvg-logo="http://website.com/channel2logo.png",   Channel 2
+
+http://server:port/channel2
+
+#EXTINF:-1 tvg-id="Channel3" tvg-name="Channel 3" tvg-language="English" group-title="Movies",Channel 3
+http://server:port/channel3
+#EXTINF:-1 tvg-id="Channel4" tvg-name="Channel 4" tvg-language="English" tvg-logo="http://website.com/channel4logo.png" group-title="Sports",Channel 4
+http://server:port/channel4
+#EXTINF:300 tvg-id="Channel5" tvg-name="Channel 5" group-title="Entertainment",Channel 5
+http://server:port/channel5
+#EXTINF:-1 tvg-id="Channel6" tvg-name="Channel 6" tvg-language="English" tvg-logo="http://website.com/channel6logo.png" group-title="Music",Channel 6
+http://server:port/channel6
+#EXTINF:-1 tvg-id="Channel7" tvg-name="Channel 7" tvg-language="English" tvg-logo="http://website.com/channel7logo.png",Channel 7
+http://server:port/channel7
+#EXTINF:-1 tvg-id="Channel8" tvg-name="Channel 8" tvg-language="English" tvg-logo="http://website.com/channel8logo.png" group-title="News",Channel 8
+http://server:port/channel8
+#EXTINF:-1 tvg-id="Channel9" tvg-name="Channel 9" tvg-language="English" tvg-logo="http://website.com/channel9logo.png" group-title="Movies",Channel 9
+http://server:port/channel9
+#EXTINF:-1 tvg-id="Channel10" tvg-name="Channel 10" tvg-language="English" group-title="Sports",Channel 10
+http://server:port/channel10
+#EXTINF:-1 tvg-id="Channel11" tvg-name="Channel 11" tvg-language="English" tvg-logo="http://website.com/channel11logo.png",Channel 11
+http://server:port/channel11
+#EXTINF:-1 tvg-id="Channel12" tvg-name="Channel 12" tvg-language="English" tvg-logo="http://website.com/channel12logo.png" group-title="Entertainment",Channel 12
+http://server:port/channel12
+#EXTINF:-1 tvg-id="Channel13" tvg-name="Channel 13" tvg-language="English" group-title="Music",Channel 13
+http://server:port/channel13
+#EXTINF:-1 tvg-id="Channel14" tvg-name="Channel 14" group-title="News",Channel 14
+http://server:port/channel14
+#EXTINF:-1 tvg-id="Channel15" tvg-name="Channel 15" tvg-language="English" tvg-logo="http://website.com/channel15logo.png" group-title="Movies",Channel 15
+http://server:port/channel15
+#EXTINF:-1 tvg-id="Channel16" tvg-name="Channel 16" tvg-language="English" group-title="Sports",Channel 16
+http://server:port/channel16
+#EXTINF:-1 tvg-id="Channel17" tvg-name="Channel 17" tvg-language="English" tvg-logo="http://website.com/channel17logo.png" group-title="Entertainment",Channel 17
+http://server:port/channel17
+#EXTINF:-1 tvg-id="Channel18" tvg-name="Channel 18" group-title="Music",Channel 18
+http://server:port/channel18
+#EXTINF:-1 tvg-id="Channel19" tvg-name="Channel 19" tvg-language="English" tvg-logo="http://website.com/channel19logo.png",Channel 19
+http://server:port/channel19
+#EXTINF:-1 tvg-id="Channel20" tvg-name="Channel 20" tvg-language="English" tvg-logo="http://website.com/channel20logo.png" group-title="News",Channel 20
+http://server:port/channel20
+#EXTINF:-1 tvg-id="Channel21" tvg-name="Channel 21" tvg-language="English" tvg-logo="http://website.com/channel21logo.png" group-title="Movies",Channel 21
+http://server:port/channel21
+#EXTINF:-1 tvg-id="Channel22" tvg-name="Channel 22" group-title="Sports",Channel 22
+http://server:port/channel22
+#EXTINF:-1 tvg-id="Channel23" tvg-name="Channel 23" tvg-language="English" group-title="Entertainment",Channel 23
+http://server:port/channel23
+#EXTINF:-1 tvg-id="Channel24" tvg-name="Channel 24" tvg-language="English" tvg-logo="http://website.com/channel24logo.png" group-title="Music",Channel 24
+http://server:port/channel24
+#EXTINF:-1 tvg-id="Channel25" tvg-name="Channel 25" tvg-language="English" tvg-logo="http://website.com/channel25logo.png",Channel 25
+http://server:port/channel25
+#EXTINF:-1 tvg-id="Channel26" tvg-name="Channel 26" tvg-language="English" tvg-logo="http://website.com/channel26logo.png" group-title="News",Channel 26
+http://server:port/channel26
+#EXTINF:-1 tvg-id="Channel27" tvg-name="Channel 27" tvg-language="English" tvg-logo="http://website.com/channel27logo.png" group-title="Movies",Channel 27
+http://server:port/channel27
+#EXTINF:-1 tvg-id="Channel28" tvg-name="Channel 28" group-title="Sports",Channel 28
+http://server:port/channel28
+#EXTINF:-1 tvg-id="Channel29" tvg-name="Channel 29" tvg-language="English" group-title="Entertainment",Channel 29
+http://server:port/channel29
+#EXTINF:-1 tvg-id="Channel30" tvg-name="Channel 30" tvg-language="English" tvg-logo="http://website.com/channel30logo.png" group-title="Music",Channel 30
+http://server:port/channel30
+#EXTINF:-1 tvg-id="Channel31" tvg-name="Channel 31" tvg-language="English" tvg-logo="http://website.com/channel31logo.png",Channel 31
+http://server:port/channel31
+#EXTINF:-1 tvg-id="Channel32" tvg-name="Channel 32" tvg-language="English" tvg-logo="http://website.com/channel32logo.png" group-title="News",Channel 32
+http://server:port/channel32
+#EXTINF:-1 tvg-id="Channel33" tvg-name="Channel 33" tvg-language="English" tvg-logo="http://website.com/channel33logo.png" group-title="Movies",Channel 33
+http://server:port/channel33
+#EXTINF:-1 tvg-id="Channel34" tvg-name="Channel 34" group-title="Sports",Channel 34
+http://server:port/channel34
+#EXTINF:-1 tvg-id="Channel35" tvg-name="Channel 35" tvg-language="English" group-title="Entertainment",Channel 35
+http://server:port/channel35
+#EXTINF:-1 tvg-id="Channel36" tvg-name="Channel 36" tvg-language="English" tvg-logo="http://website.com/channel36logo.png" group-title="Music",Channel 36
+http://server:port/channel36
+#EXTINF:-1 tvg-id="Channel37" tvg-name="Channel 37" tvg-language="English" tvg-logo="http://website.com/channel37logo.png",Channel 37
+http://server:port/channel37
+#EXTINF:-1 tvg-id="Channel38" tvg-name="Channel 38" tvg-language="English" tvg-logo="http://website.com/channel38logo.png" group-title="News",Channel 38
+http://server:port/channel38
+#EXTINF:-1 tvg-id="Channel39" tvg-name="Channel 39" tvg-language="English" tvg-logo="http://website.com/channel39logo.png" group-title="Movies",Channel 39
+http://server:port/channel39
+#EXTINF:-1 tvg-id="Channel40" tvg-name="Channel 40" group-title="Sports",Channel 40
+http://server:port/channel40
+#EXTINF:-1 tvg-id="Channel41" tvg-name="Channel 41" tvg-language="English" group-title="Entertainment",Channel 41
+http://server:port/channel41
+#EXTINF:-1 tvg-id="Channel42" tvg-name="Channel 42" tvg-language="English" tvg-logo="http://website.com/channel42logo.png" group-title="Music",Channel 42
+http://server:port/channel42
+#EXTINF:-1 tvg-id="Channel43" tvg-name="Channel 43" tvg-language="English" tvg-logo="http://website.com/channel43logo.png",Channel 43
+http://server:port/channel43
+#EXTINF:-1 tvg-id="Channel44" tvg-name="Channel 44" tvg-language="English" tvg-logo="http://website.com/channel44logo.png" group-title="News",Channel 44
+http://server:port/channel44
+#EXTINF:-1 tvg-id="Channel45" tvg-name="Channel 45" tvg-language="English" tvg-logo="http://website.com/channel45logo.png" group-title="Movies",Channel 45
+http://server:port/channel45
+#EXTINF:-1 tvg-id="Channel46" tvg-name="Channel 46" group-title="Sports",Channel 46
+http://server:port/channel46
+#EXTINF:-1 tvg-id="Channel47" tvg-name="Channel 47" tvg-language="English" group-title="Entertainment",Channel 47
+http://server:port/channel47
+#EXTINF:-1 tvg-id="Channel48" tvg-name="Channel 48" tvg-language="English" tvg-logo="http://website.com/channel48logo.png" group-title="Music",Channel 48
+http://server:port/channel48
+#EXTINF:-1 tvg-id="Channel49" tvg-name="Channel 49" tvg-language="English" tvg-logo="http://website.com/channel49logo.png",Channel 49
+http://server:port/channel49
+#EXTINF:-1 tvg-id="Channel50" tvg-name="Channel 50" tvg-language="English" tvg-logo="http://website.com/channel50logo.png" group-title="News",Channel 50
+http://server:port/channel50

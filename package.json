@@ -1,0 +1,73 @@
+{
+  "name": "@iptv/playlist",
+  "description": "An extremely fast M3U playlist parser and generator for Node and the browser.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "ekto",
+    "url": "https://ekto.tv/"
+  },
+  "main": "./dist/playlist.umd.cjs",
+  "module": "./dist/playlist.js",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/playlist.js",
+      "require": "./dist/playlist.umd.cjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "playlist",
+    "m3u",
+    "m3u8",
+    "iptv",
+    "parser",
+    "generator"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "tsc",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "test:ci": "vitest --run --coverage.enabled --coverage.reporter='text-summary'",
+    "benchmark": "vitest bench",
+    "benny": "ts-node --esm ./benchmark/benchmark.ts",
+    "nanobench": "ts-node --esm ./benchmark/nanobench.ts",
+    "changeset": "changeset",
+    "prerelease": "pnpm run build && pnpm run test:ci",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
+    "@types/argparse": "^2.0.10",
+    "@types/node": "^20.3.3",
+    "@vitest/coverage-c8": "^0.32.2",
+    "argparse": "^2.0.1",
+    "benny": "^3.7.1",
+    "iptv-playlist-generator": "^0.1.5",
+    "iptv-playlist-parser": "^0.12.2",
+    "m3u-parser-generator": "^1.3.0",
+    "nanobench": "^3.0.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^3.0.2",
+    "vitest": "^0.29.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ektotv/playlist.git"
+  },
+  "volta": {
+    "node": "20.3.1"
+  }
+}
