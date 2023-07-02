@@ -88,6 +88,7 @@ const channels: M3uChannel[] = playlist.channels;
       tvgName: 'Channel 1',
       tvgLanguage: 'English',
       groupTitle: 'News',
+      duration: -1,
       name: 'Channel 1',
       url: 'http://server:port/channel1',
       extras: {
@@ -111,6 +112,7 @@ const playlistObject: M3uPlaylist = {
       tvgName: "Channel 1",
       tvgLanguage: "English",
       groupTitle: "News",
+      duration: -1,
       name: "Channel 1",
       url: "http://server:port/channel1",
       extras: {
