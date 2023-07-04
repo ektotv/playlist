@@ -480,13 +480,29 @@ exports[`Write a m3u file > Write a m3u file 1`] = `
 #EXTINF:-1 tvg-id=\\"Channel1\\" tvg-name=\\"Channel 1\\" group-title=\\"News\\",Channel 1
 http://server:port/channel1
 #EXTINF:-1 tvg-id=\\"Channel2\\" tvg-name=\\"Channel 2\\",Channel 2
-http://server:port/channel2
-"
+http://server:port/channel2"
+`;
+
+exports[`Write a m3u file > Write a m3u file every attribute 1`] = `
+"#EXTM3U x-tvg-url=\\"http://example.com\\"
+#EXTINF:-1 tvg-id=\\"channel1.uk\\" tvg-name=\\"Channel 1\\" tvg-language=\\"English\\" tvg-logo=\\"http://example.com/logo.png\\" tvg-rec=\\"default\\" group-title=\\"News\\" tvg-url=\\"http://example.com\\" timeshift=\\"1\\" catchup=\\"default\\" catchup-days=\\"7\\" catchup-source=\\"http://example.com\\" some-other-key=\\"hello\\",Channel 1
+http://server:port/channel1"
+`;
+
+exports[`Write a m3u file > Write a m3u file items with no name 1`] = `
+"#EXTM3U
+#EXTINF:-1,
+http://server:port/channel1"
+`;
+
+exports[`Write a m3u file > Write a m3u file items with no url 1`] = `
+"#EXTM3U
+#EXTINF:-1,Channel 2
+http://server:port/channel2"
 `;
 
 exports[`Write a m3u file > Write a m3u file with headers 1`] = `
 "#EXTM3U x-tvg-url=\\"http://example.com\\"
 #EXTINF:-1 tvg-id=\\"Channel1\\" tvg-name=\\"Channel 1\\" group-title=\\"News\\" some-other-key=\\"hello\\",Channel 1
-http://server:port/channel1
-"
+http://server:port/channel1"
 `;

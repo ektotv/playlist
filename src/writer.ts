@@ -36,33 +36,33 @@ function writeM3U(playlist: M3uPlaylist) {
     for (const [key, value] of Object.entries(playlist.headers)) {
       m3u += ` ${key}="${value}"`;
     }
-    m3u += "\n";
   }
 
   for (const channel of playlist.channels) {
-    m3u += "#EXTINF:-1";
-    m3u += channel.tvgId ? ` tvg-id="${channel.tvgId}"` : "";
-    m3u += channel.tvgName ? ` tvg-name="${channel.tvgName}"` : "";
-    m3u += channel.tvgLanguage ? ` tvg-language="${channel.tvgLanguage}"` : "";
-    m3u += channel.tvgLogo ? ` tvg-logo="${channel.tvgLogo}"` : "";
-    m3u += channel.tvgRec ? ` tvg-rec="${channel.tvgRec}"` : "";
-    m3u += channel.groupTitle ? ` group-title="${channel.groupTitle}"` : "";
-    m3u += channel.tvgUrl ? ` tvg-url="${channel.tvgUrl}"` : "";
-    m3u += channel.timeshift ? ` timeshift="${channel.timeshift}"` : "";
-    m3u += channel.catchup ? ` catchup="${channel.catchup}"` : "";
-    m3u += channel.catchupDays ? ` catchup-days="${channel.catchupDays}"` : "";
-    m3u += channel.catchupSource
-      ? ` catchup-source="${channel.catchupSource}"`
-      : "";
+    if (!channel.url) continue;
+    m3u += "\n#EXTINF:";
+    m3u += channel?.duration ? channel.duration : "-1";
+    if (channel.tvgId) m3u += ` tvg-id="${channel.tvgId}"`;
+    if (channel.tvgName) m3u += ` tvg-name="${channel.tvgName}"`;
+    if (channel.tvgLanguage) m3u += ` tvg-language="${channel.tvgLanguage}"`;
+    if (channel.tvgLogo) m3u += ` tvg-logo="${channel.tvgLogo}"`;
+    if (channel.tvgRec) m3u += ` tvg-rec="${channel.tvgRec}"`;
+    if (channel.groupTitle) m3u += ` group-title="${channel.groupTitle}"`;
+    if (channel.tvgUrl) m3u += ` tvg-url="${channel.tvgUrl}"`;
+    if (channel.timeshift) m3u += ` timeshift="${channel.timeshift}"`;
+    if (channel.catchup) m3u += ` catchup="${channel.catchup}"`;
+    if (channel.catchupDays) m3u += ` catchup-days="${channel.catchupDays}"`;
+    if (channel.catchupSource)
+      m3u += ` catchup-source="${channel.catchupSource}"`;
 
     if (channel.extras) {
       for (const [key, value] of Object.entries(channel.extras)) {
         m3u += ` ${key}="${value}"`;
       }
     }
-
-    m3u += channel.name ? `,${channel.name}\n` : "\n";
-    m3u += channel.url ? `${channel.url}\n` : "\n";
+    m3u += ",";
+    if (channel.name) m3u += channel.name;
+    m3u += `\n${channel.url}`;
   }
 
   return m3u;

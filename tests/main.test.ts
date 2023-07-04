@@ -61,6 +61,66 @@ describe("Write a m3u file", () => {
     const m3u = writeM3U(exampleWithHeaders);
     expect(m3u).toMatchSnapshot();
   });
+
+  test("Write a m3u file every attribute", () => {
+    const m3u = writeM3U({
+      channels: [
+        {
+          tvgId: "channel1.uk",
+          tvgName: "Channel 1",
+          tvgLanguage: "English",
+          tvgLogo: "http://example.com/logo.png",
+          tvgUrl: "http://example.com",
+          tvgRec: "default",
+          groupTitle: "News",
+          url: "http://server:port/channel1",
+          name: "Channel 1",
+          timeshift: "1",
+          catchup: "default",
+          duration: -1,
+          catchupDays: "7",
+          catchupSource: "http://example.com",
+          extras: {
+            "some-other-key": "hello",
+          },
+        },
+      ],
+      headers: {
+        "x-tvg-url": "http://example.com",
+      },
+    });
+    expect(m3u).toMatchSnapshot();
+  });
+
+  test("Write a m3u file items with no name", () => {
+    const m3u = writeM3U({
+      channels: [
+        {
+          url: "http://server:port/channel1",
+        },
+      ],
+    });
+    expect(m3u).toMatchSnapshot();
+  });
+
+  test("Write a m3u file items with no url", () => {
+    const m3u = writeM3U({
+      // @ts-ignore
+      channels: [
+        {
+          name: "Channel 1",
+        },
+        {
+          name: "Channel 2",
+          url: "http://server:port/channel2",
+        },
+      ],
+    });
+
+    const parsed = parseM3U(m3u);
+    expect(parsed.channels.length).toBe(1);
+    expect(m3u).toMatchSnapshot();
+  });
 });
 
 describe("Parses a m3u file", () => {
@@ -739,5 +799,17 @@ describe("Parses a m3u file", () => {
     expect(parsed.channels[0].groupTitle).toBeUndefined();
     expect(parsed.channels[0].name).toBe("Channel 1");
     expect(parsed.channels[0].url).toBe("http://server:port/channel1");
+  });
+
+  test("Can parse can incomplete m3u file", () => {
+    const playlistContent = `
+    #EXTM3U
+    #EXTINF:-1,Channel 1
+    http://server:port/channel1
+    #EXTINF:-1`;
+    const parsed = parseM3U(playlistContent);
+
+    // Ensure the correct number of channels is parsed
+    expect(parsed.channels.length).toBe(1);
   });
 });
