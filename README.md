@@ -198,17 +198,17 @@ This library has been optimized for parsing and generating M3U files quickly and
     <tr>
       <th align="left">🟢</th>
       <th align="left">@iptv/playlist</th>
-      <td align="right">9,622,082</td>
+      <td align="right">10,514,760</td>
     </tr>
      <tr>
       <th align="left"></th>
       <th align="left">iptv-playlist-generator</th>
-      <td align="right">3,254,227</td>
+      <td align="right">3,119,304</td>
     </tr>
     <tr>
       <th align="left">🔴</th>
       <th align="left">m3u-parser-generator</th>
-      <td align="right">1,773,597</td>
+      <td align="right">1,816,358</td>
     </tr>
   </tbody>
 </table>
