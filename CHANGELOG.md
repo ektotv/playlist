@@ -4,7 +4,8 @@
 
 ### Patch Changes
 
-- [`4c0da2d`](https://github.com/ektotv/playlist/commit/4c0da2d7544ca443bc177e6167f0d6fee1f21fa9) Thanks [@evoactivity](https://github.com/evoactivity)! - - (bug) If no headers are passed to writeM3U it doesn't add a new line after EXTM3U.
+- [`4c0da2d`](https://github.com/ektotv/playlist/commit/4c0da2d7544ca443bc177e6167f0d6fee1f21fa9) Thanks [@evoactivity](https://github.com/evoactivity)!
+  - (bug) If no headers are passed to writeM3U it doesn't add a new line after EXTM3U.
   - (feat) Improved writer performance.
   - (chore) Updated vitest
   - (chore) Brought code coverage to 100%
