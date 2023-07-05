@@ -32,9 +32,10 @@ jobs:
       fail-fast: true
       matrix:
         typescript-scenario:
-          - typescript@4.8
           - typescript@4.9
           - typescript@5.0
+          - typescript@5.1
+          - typescript@5.2
     steps:
       - uses: actions/checkout@v3
       - uses: NullVoxPopuli/action-setup-pnpm@v2
