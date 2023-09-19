@@ -1,5 +1,11 @@
 # @iptv/playlist
 
+## 0.0.4
+
+### Patch Changes
+
+- [#4](https://github.com/ektotv/playlist/pull/4) [`a4f3d67`](https://github.com/ektotv/playlist/commit/a4f3d6700ec2352ae52f1df0ee86069d65d7ba6b) Thanks [@evoactivity](https://github.com/evoactivity)! - Partially fix type exports in package.json
+
 ## 0.0.3
 
 ### Patch Changes
