@@ -13,8 +13,14 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/playlist.js",
-      "require": "./dist/playlist.umd.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/playlist.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/playlist.umd.cjs"
+      }
     }
   },
   "publishConfig": {
