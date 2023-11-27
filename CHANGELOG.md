@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-- [#7](https://github.com/ektotv/playlist/pull/7) [`22b3fa3`](https://github.com/ektotv/playlist/commit/22b3fa38a084de12cf99ece82197d97118f6f4ba) Thanks [@evoactivity](https://github.com/evoactivity)! - Use DTS workaround to generate index.d.mts for ESM build
+- [#7](https://github.com/ektotv/playlist/pull/7) [`22b3fa3`](https://github.com/ektotv/playlist/commit/22b3fa38a084de12cf99ece82197d97118f6f4ba) Thanks [@evoactivity](https://github.com/evoactivity)! - Use DTS workaround to generate index.d.cts for CJS build
 
   We also are bumping the package to v1.0.0 as we feel it is now proven to be stable and ready for production use.
 
