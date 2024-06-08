@@ -9,8 +9,6 @@ export type M3uPlaylist = {
   headers?: M3uHeaders;
 };
 
-type GenericObject = { [key: string]: string | undefined };
-
 export type M3uChannel = {
   tvgId?: string;
   tvgName?: string;
@@ -26,5 +24,5 @@ export type M3uChannel = {
   duration?: number;
   catchupDays?: string;
   catchupSource?: string;
-  extras?: GenericObject;
+  extras?: Record<string, string | undefined>;
 };
