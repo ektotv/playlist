@@ -1,7 +1,7 @@
 {
   "name": "@iptv/playlist",
   "description": "An extremely fast M3U playlist parser and generator for Node and the browser.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": {
     "name": "ekto",
