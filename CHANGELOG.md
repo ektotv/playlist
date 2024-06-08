@@ -1,5 +1,11 @@
 # @iptv/playlist
 
+## 1.0.1
+
+### Patch Changes
+
+- [#10](https://github.com/ektotv/playlist/pull/10) [`1e38b6e`](https://github.com/ektotv/playlist/commit/1e38b6e3c56a7601540128d550ef9067888d3379) Thanks [@chrisbenincasa](https://github.com/chrisbenincasa)! - Export all types in generated declaration file
+
 ## 1.0.0
 
 ### Major Changes
