@@ -47,6 +47,7 @@ function writeM3U(playlist: M3uPlaylist) {
     if (channel.tvgLanguage) m3u += ` tvg-language="${channel.tvgLanguage}"`;
     if (channel.tvgLogo) m3u += ` tvg-logo="${channel.tvgLogo}"`;
     if (channel.tvgRec) m3u += ` tvg-rec="${channel.tvgRec}"`;
+    if (channel.tvgChno) m3u += ` tvg-chno="${channel.tvgChno}"`;
     if (channel.groupTitle) m3u += ` group-title="${channel.groupTitle}"`;
     if (channel.tvgUrl) m3u += ` tvg-url="${channel.tvgUrl}"`;
     if (channel.timeshift) m3u += ` timeshift="${channel.timeshift}"`;

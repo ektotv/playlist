@@ -72,6 +72,7 @@ describe("Write a m3u file", () => {
           tvgLogo: "http://example.com/logo.png",
           tvgUrl: "http://example.com",
           tvgRec: "default",
+          tvgChno: "1",
           groupTitle: "News",
           url: "http://server:port/channel1",
           name: "Channel 1",
