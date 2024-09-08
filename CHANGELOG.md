@@ -1,5 +1,11 @@
 # @iptv/playlist
 
+## 1.1.0
+
+### Minor Changes
+
+- [#12](https://github.com/ektotv/playlist/pull/12) [`98065fa`](https://github.com/ektotv/playlist/commit/98065fa057fe4d33705538011a34f3a045b1b38e) Thanks [@evoactivity](https://github.com/evoactivity)! - Adds support for the tv-chno field
+
 ## 1.0.1
 
 ### Patch Changes
