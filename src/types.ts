@@ -16,6 +16,7 @@ export type M3uChannel = {
   tvgLogo?: string;
   tvgUrl?: string;
   tvgRec?: string;
+  tvgChno?: string;
   groupTitle?: string;
   url?: string;
   name?: string;

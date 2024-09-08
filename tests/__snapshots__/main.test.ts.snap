@@ -485,7 +485,7 @@ http://server:port/channel2"
 
 exports[`Write a m3u file > Write a m3u file every attribute 1`] = `
 "#EXTM3U x-tvg-url=\\"http://example.com\\"
-#EXTINF:-1 tvg-id=\\"channel1.uk\\" tvg-name=\\"Channel 1\\" tvg-language=\\"English\\" tvg-logo=\\"http://example.com/logo.png\\" tvg-rec=\\"default\\" group-title=\\"News\\" tvg-url=\\"http://example.com\\" timeshift=\\"1\\" catchup=\\"default\\" catchup-days=\\"7\\" catchup-source=\\"http://example.com\\" some-other-key=\\"hello\\",Channel 1
+#EXTINF:-1 tvg-id=\\"channel1.uk\\" tvg-name=\\"Channel 1\\" tvg-language=\\"English\\" tvg-logo=\\"http://example.com/logo.png\\" tvg-rec=\\"default\\" tvg-chno=\\"1\\" group-title=\\"News\\" tvg-url=\\"http://example.com\\" timeshift=\\"1\\" catchup=\\"default\\" catchup-days=\\"7\\" catchup-source=\\"http://example.com\\" some-other-key=\\"hello\\",Channel 1
 http://server:port/channel1"
 `;
 
