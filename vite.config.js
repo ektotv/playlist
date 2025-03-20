@@ -28,6 +28,8 @@ export default defineConfig({
   test: {
     coverage: {
       provider: 'v8',
+      include: ['src/**/*.ts'],
+      exclude: ['src/types.ts', 'src/vite-env.d.ts'],
     },
   },
 });

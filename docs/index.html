@@ -1,0 +1,190 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@iptv/playlist - v1.1.0</title><meta name="description" content="Documentation for @iptv/playlist"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@iptv/playlist - v1.1.0</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h2>@iptv/playlist - v1.1.0</h2></div><div class="tsd-panel tsd-typography"><div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./logo-dark.svg">
+    <img alt="Playlist. TypeScript tools for working with M3U playlist data." src="./logo.svg">
+  </picture>
+
+<a id="md:iptvplaylist" class="tsd-anchor"></a><h1><a href="#md:iptvplaylist">@iptv/playlist</a></h1><p>An extremely fast M3U playlist parser and generator for Node and the browser. <br>Lightweight, dependency-free, and easy to use.</p>
+<hr>
+<p><a href="https://www.npmjs.com/package/@iptv/playlist"><img src="https://img.shields.io/npm/v/@iptv/playlist?style=flat-square" alt="npm"></a>
+<a href="https://github.com/ektotv/playlist/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/ektotv/playlist/ci.yml?branch=main&style=flat-square" alt="GitHub Workflow Status"></a>
+<a href="https://github.com/ektotv/playlist/tree/main/tests"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/evoactivity/7c8deb6342792baafac8834185e96476/raw/iptv_playlist_coverage.json&style=flat-square" alt="Coverage"></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/github/license/ektotv/playlist?style=flat-square" alt="GitHub"></a></p>
+</div>
+
+<hr>
+<a id="md:✨-features" class="tsd-anchor"></a><h2><a href="#md:✨-features">✨ Features</a></h2><ul>
+<li><strong>Extremely</strong> fast M3U parser and generator</li>
+<li>Lightweight (1.34 kB gzipped)</li>
+<li>No dependencies</li>
+<li>ESM and CommonJS support</li>
+<li>Supports Node and the browser</li>
+<li>Supports <strong>any</strong> M3U <code>#EXTINF</code> &amp; <code>#EXTM3U</code> attribute</li>
+<li>Did I mention <a href="#md:-performance">it&#39;s fast</a>?</li>
+</ul>
+<hr>
+<a id="md:📥-installation" class="tsd-anchor"></a><h2><a href="#md:📥-installation">📥 Installation</a></h2><p>To install this library, use the following command:</p>
+<pre><code class="language-bash"><span class="hl-0"># pnpm</span><br/><span class="hl-1">pnpm</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">@iptv/playlist</span><br/><br/><span class="hl-0"># npm</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">install</span><span class="hl-2"> </span><span class="hl-3">@iptv/playlist</span><br/><br/><span class="hl-0"># yarn</span><br/><span class="hl-1">yarn</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">@iptv/playlist</span>
+</code><button>Copy</button></pre>
+<hr>
+<a id="md:🔧-usage" class="tsd-anchor"></a><h2><a href="#md:🔧-usage">🔧 Usage</a></h2><p>To use this library in your project, first import the functions you need:</p>
+<pre><code class="language-typescript"><span class="hl-4">import</span><span class="hl-2"> { </span><span class="hl-5">parseM3U</span><span class="hl-2">, </span><span class="hl-5">writeM3U</span><span class="hl-2"> } </span><span class="hl-4">from</span><span class="hl-2"> </span><span class="hl-3">&#39;@iptv/playlist&#39;</span><span class="hl-2">;</span>
+</code><button>Copy</button></pre>
+<p>Then, you can parse an M3U file and receive back an <code>M3uPlaylist</code> object:</p>
+<details>
+  <summary>Example M3U File</summary>
+
+<p>Examples will be based on this M3U file, it can be found in the <a href="tests/fixtures">tests/fixtures</a> directory.</p>
+<pre><code class="language-m3u">#EXTM3U
+#EXTINF:-1 tvg-id=&quot;Channel1&quot; tvg-name=&quot;Channel 1&quot; tvg-language=&quot;English&quot; group-title=&quot;News&quot;,Channel 1
+http://server:port/channel1
+</code><button>Copy</button></pre>
+</details>
+
+<pre><code class="language-typescript"><span class="hl-6">const</span><span class="hl-2"> </span><span class="hl-7">m3u</span><span class="hl-2"> = </span><span class="hl-3">`...`</span><span class="hl-2">; </span><span class="hl-0">// M3U file contents</span><br/><span class="hl-6">const</span><span class="hl-2"> </span><span class="hl-7">playlist</span><span class="hl-2">: </span><span class="hl-8">M3uPlaylist</span><span class="hl-2"> = </span><span class="hl-1">parseM3U</span><span class="hl-2">(</span><span class="hl-5">m3u</span><span class="hl-2">);</span><br/><span class="hl-6">const</span><span class="hl-2"> </span><span class="hl-7">channels</span><span class="hl-2">: </span><span class="hl-8">M3uChannel</span><span class="hl-2">[] = </span><span class="hl-5">playlist</span><span class="hl-2">.</span><span class="hl-5">channels</span><span class="hl-2">;</span>
+</code><button>Copy</button></pre>
+<details>
+  <summary>Example output of `parseM3U()`</summary>
+
+<pre><code class="language-typescript"><span class="hl-2">{</span><br/><span class="hl-2">  </span><span class="hl-9">channels</span><span class="hl-2">: [</span><br/><span class="hl-2">    {</span><br/><span class="hl-2">      </span><span class="hl-5">tvgId:</span><span class="hl-2"> </span><span class="hl-3">&#39;Channel1&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">tvgName:</span><span class="hl-2"> </span><span class="hl-3">&#39;Channel 1&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">tvgLanguage:</span><span class="hl-2"> </span><span class="hl-3">&#39;English&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">groupTitle:</span><span class="hl-2"> </span><span class="hl-3">&#39;News&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">duration:</span><span class="hl-2"> -</span><span class="hl-10">1</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">name:</span><span class="hl-2"> </span><span class="hl-3">&#39;Channel 1&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">url:</span><span class="hl-2"> </span><span class="hl-3">&#39;http://server:port/channel1&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">extras:</span><span class="hl-2"> {</span><br/><span class="hl-2">        </span><span class="hl-3">&#39;your-custom-attribute&#39;</span><span class="hl-5">:</span><span class="hl-2"> </span><span class="hl-3">&#39;your-custom-value&#39;</span><br/><span class="hl-2">      }</span><br/><span class="hl-2">    },</span><br/><span class="hl-2">  ],</span><br/><span class="hl-2">  </span><span class="hl-9">headers</span><span class="hl-2">: {}</span><br/><span class="hl-2">}</span>
+</code><button>Copy</button></pre>
+</details>
+
+<p>You can also generate an M3U file from a <code>M3uPlaylist</code> object:</p>
+<pre><code class="language-typescript"><span class="hl-6">const</span><span class="hl-2"> </span><span class="hl-7">playlistObject</span><span class="hl-2">: </span><span class="hl-8">M3uPlaylist</span><span class="hl-2"> = {</span><br/><span class="hl-2">  </span><span class="hl-5">channels:</span><span class="hl-2"> [</span><br/><span class="hl-2">    {</span><br/><span class="hl-2">      </span><span class="hl-5">tvgId:</span><span class="hl-2"> </span><span class="hl-3">&#39;Channel1&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">tvgName:</span><span class="hl-2"> </span><span class="hl-3">&#39;Channel 1&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">tvgLanguage:</span><span class="hl-2"> </span><span class="hl-3">&#39;English&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">groupTitle:</span><span class="hl-2"> </span><span class="hl-3">&#39;News&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">duration:</span><span class="hl-2"> -</span><span class="hl-10">1</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">name:</span><span class="hl-2"> </span><span class="hl-3">&#39;Channel 1&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">url:</span><span class="hl-2"> </span><span class="hl-3">&#39;http://server:port/channel1&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      </span><span class="hl-5">extras:</span><span class="hl-2"> {</span><br/><span class="hl-2">        </span><span class="hl-3">&#39;your-custom-attribute&#39;</span><span class="hl-5">:</span><span class="hl-2"> </span><span class="hl-3">&#39;your-custom-value&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">      },</span><br/><span class="hl-2">    },</span><br/><span class="hl-2">  ],</span><br/><span class="hl-2">  </span><span class="hl-5">headers:</span><span class="hl-2"> {},</span><br/><span class="hl-2">};</span><br/><span class="hl-6">const</span><span class="hl-2"> </span><span class="hl-7">m3u</span><span class="hl-2"> = </span><span class="hl-1">writeM3U</span><span class="hl-2">(</span><span class="hl-5">playlistObject</span><span class="hl-2">);</span><br/><span class="hl-5">console</span><span class="hl-2">.</span><span class="hl-1">log</span><span class="hl-2">(</span><span class="hl-5">m3u</span><span class="hl-2">); </span><span class="hl-0">// #EXTM3U ...</span>
+</code><button>Copy</button></pre>
+<a id="md:standard-attributes" class="tsd-anchor"></a><h3><a href="#md:standard-attributes">Standard Attributes</a></h3><p>This library supports all standard attributes for the <code>#EXTINF</code> and <code>#EXTM3U</code> tags. They will be parsed, camelCased and added as properties on the <code>M3uChannel</code> object.</p>
+<a id="md:custom-attributes" class="tsd-anchor"></a><h3><a href="#md:custom-attributes">Custom Attributes</a></h3><p>This library supports any custom attributes you may have in your M3U file. They will be parsed and generated as an object under the <code>extras</code> property of the <code>M3uChannel</code> object.</p>
+<pre><code class="language-m3u">#EXTM3U
+#EXTINF:-1 tvg-id=&quot;Channel1&quot; tvg-name=&quot;Channel 1&quot; tvg-language=&quot;English&quot; group-title=&quot;News&quot; custom-attribute=&quot;hello&quot;,Channel 1
+http://server:port/channel1
+</code><button>Copy</button></pre>
+<pre><code class="language-typescript"><span class="hl-6">const</span><span class="hl-2"> </span><span class="hl-7">m3u</span><span class="hl-2"> = </span><span class="hl-3">`...`</span><span class="hl-2">; </span><span class="hl-0">// M3U file contents</span><br/><span class="hl-6">const</span><span class="hl-2"> </span><span class="hl-7">playlist</span><span class="hl-2">: </span><span class="hl-8">M3uPlaylist</span><span class="hl-2"> = </span><span class="hl-1">parseM3U</span><span class="hl-2">(</span><span class="hl-5">m3u</span><span class="hl-2">);</span><br/><span class="hl-6">const</span><span class="hl-2"> </span><span class="hl-7">channel</span><span class="hl-2">: </span><span class="hl-8">M3uChannel</span><span class="hl-2"> = </span><span class="hl-5">playlist</span><span class="hl-2">.</span><span class="hl-5">channels</span><span class="hl-2">[</span><span class="hl-10">0</span><span class="hl-2">];</span><br/><span class="hl-5">console</span><span class="hl-2">.</span><span class="hl-1">log</span><span class="hl-2">(</span><span class="hl-5">channel</span><span class="hl-2">.</span><span class="hl-5">extras</span><span class="hl-2">); </span><span class="hl-0">// { &#39;custom-attribute&#39;: &#39;hello&#39; }</span>
+</code><button>Copy</button></pre>
+<hr>
+<a id="md:⚡-performance" class="tsd-anchor"></a><h2><a href="#md:⚡-performance">⚡ Performance</a></h2><p>This library has been optimized for parsing and generating M3U files quickly and efficiently. In my benchmarks, it performs better than <a href="https://www.npmjs.com/package/iptv-playlist-parser">iptv-playlist-parser</a>, <a href="https://www.npmjs.com/package/iptv-playlist-generator">iptv-playlist-generator</a> and <a href="https://www.npmjs.com/package//m3u-parser-generator">m3u-parser-generator</a>.</p>
+<a id="md:benchmarks" class="tsd-anchor"></a><h3><a href="#md:benchmarks">Benchmarks</a></h3><a id="md:parsing-m3u-file-smallm3u8" class="tsd-anchor"></a><h4><a href="#md:parsing-m3u-file-smallm3u8">Parsing M3U file (small.m3u8)</a></h4><table>
+  <thead>
+    <tr>
+        <th align="left"></th>
+        <th align="left">Library</th>
+        <th align="left">Ops/sec</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>🟢</th>
+      <th align="left">@iptv/playlist</th>
+      <td align="right">1,363,859</td>
+    </tr>
+    <tr>
+      <th></th>
+      <th align="left">m3u-parser-generator</th>
+      <td align="right">607,573</td>
+    </tr>
+    <tr>
+      <th>🔴</th>
+      <th align="left">iptv-playlist-parser</th>
+      <td align="right">244,150</td>
+    </tr>
+  </tbody>
+</table>
+
+<a id="md:writing-m3u-file-smallm3u8" class="tsd-anchor"></a><h4><a href="#md:writing-m3u-file-smallm3u8">Writing M3U file (small.m3u8)</a></h4><table>
+  <thead>
+    <tr>
+      <th align="left"></th>
+      <th align="left">Library</th>
+      <th align="left">Ops/sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th align="left">🟢</th>
+      <th align="left">@iptv/playlist</th>
+      <td align="right">10,514,760</td>
+    </tr>
+     <tr>
+      <th align="left"></th>
+      <th align="left">iptv-playlist-generator</th>
+      <td align="right">3,119,304</td>
+    </tr>
+    <tr>
+      <th align="left">🔴</th>
+      <th align="left">m3u-parser-generator</th>
+      <td align="right">1,816,358</td>
+    </tr>
+  </tbody>
+</table>
+
+<a id="md:time-spent-parsing-different-m3u-files" class="tsd-anchor"></a><h4><a href="#md:time-spent-parsing-different-m3u-files">Time spent parsing different M3U files</a></h4><table>
+  <thead>
+    <tr>
+      <th align="left"></th>
+      <th align="left">Channels</th>
+      <th align="right">1</th>
+      <th align="right">100</th>
+      <th align="right">500</th>
+      <th align="right">1,000</th>
+      <th align="right">10,000</th>
+      <th align="right">100,000</th>
+      <th align="right">1,000,000</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th align="left">🟢</th>
+      <th align="left">@iptv/playlist</th>
+      <td align="right">~11 μs</td>
+      <td align="right">~201 μs</td>
+      <td align="right">~894 μs</td>
+      <td align="right">~1.94 ms</td>
+      <td align="right">~5.41 ms</td>
+      <td align="right">~67 ms</td>
+      <td align="right">~681 ms</td>
+    </tr>
+    <tr>
+      <th align="left"></th>
+      <th align="left">m3u-parser-generator</th>
+      <td align="right">~17 μs</td>
+      <td align="right">~226 μs</td>
+      <td align="right">~1.23 ms</td>
+      <td align="right">~3.66 ms</td>
+      <td align="right">~17 ms</td>
+      <td align="right">~153 ms</td>
+      <td align="right">~1.68 s</td>
+    </tr>
+    <tr>
+      <th align="left">🔴</th>
+      <th align="left">iptv-playlist-parser</th>
+      <td align="right">~116 μs</td>
+      <td align="right">~513 μs</td>
+      <td align="right">~2.61 ms</td>
+      <td align="right">~5.17 ms</td>
+      <td align="right">~57 ms</td>
+      <td align="right">~385 ms</td>
+      <td align="right">~3.94 s</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><sup>I used nanobench to get the above times.</sup></p>
+
+<p><sup>These benchmarks were run on a 2021 MacBook Pro M1 Max (10 cores) with 64 GB of RAM.</sup></p>
+
+<hr>
+<a id="md:🎯-future-goals" class="tsd-anchor"></a><h2><a href="#md:🎯-future-goals">🎯 Future Goals</a></h2><a id="md:worker-support" class="tsd-anchor"></a><h3><a href="#md:worker-support">Worker Support</a></h3><p>Even though it&#39;s fast and it won&#39;t block for long, this will block your main thread whilst it runs. I&#39;d like to add support for running the parser in a worker so it doesn&#39;t block at all.</p>
+<a id="md:🚫-non-goals" class="tsd-anchor"></a><h2><a href="#md:🚫-non-goals">🚫 Non-Goals</a></h2><a id="md:hls-parsing" class="tsd-anchor"></a><h3><a href="#md:hls-parsing">HLS Parsing</a></h3><p>This library is designed to parse and generate media player playlist files only. It is not designed to be a generic m3u parser or generator. It will not parse or generate HLS playlists.</p>
+<hr>
+<a id="md:🤝-contributing" class="tsd-anchor"></a><h2><a href="#md:🤝-contributing">🤝 Contributing</a></h2><p>Contributions are welcome! Even better if they align with the <a href="#md:-future-goals">future goals</a>.</p>
+<p>You&#39;ll need to be able to run the tests and benchmarks. To do so, you will need to run the <code>./create-fixtures.sh</code> script in the <code>tests/fixtures</code> directory to generate the necessary fixture files.</p>
+<p>To be accepted your PR must pass all tests and not negatively impact the benchmarks. Some commands to help you:</p>
+<ul>
+<li><code>pnpm run test</code> - Run the vitest suite</li>
+<li><code>pnpm run benny</code> - Run benchmarks with benny</li>
+<li><code>pnpm run benchmark</code> - Run benchmarks with vitest</li>
+<li><code>pnpm run nanobench</code> - Run additional timing benchmarks</li>
+</ul>
+<p>This project uses <a href="https://github.com/changesets/changesets">Changesets</a> to manage releases. For you, this just means your PR must come with an appropriate changeset file. If you&#39;re not sure how to do this, just ask and I&#39;ll be happy to help, or read the changesets documentation on <a href="https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md">adding a changeset</a>.</p>
+<a id="md:📄-license-amp-credit" class="tsd-anchor"></a><h2><a href="#md:📄-license-amp-credit">📄 License &amp; Credit</a></h2><p>This library is licensed under the <a href="https://github.com/ektotv/playlist/LICENSE.md">MIT License</a> and is free to use in both open source and commercial projects.</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-index-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><h4 class="uppercase">Member Visibility</h4><form><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></form></div><div class="tsd-theme-toggle"><h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:iptvplaylist"><span>@iptv/playlist</span></a><ul><li><a href="#md:✨-features"><span>✨ <wbr/>Features</span></a></li><li><a href="#md:📥-installation"><span>📥 <wbr/>Installation</span></a></li><li><a href="#md:🔧-usage"><span>🔧 <wbr/>Usage</span></a></li><li><ul><li><a href="#md:standard-attributes"><span>Standard <wbr/>Attributes</span></a></li><li><a href="#md:custom-attributes"><span>Custom <wbr/>Attributes</span></a></li></ul></li><li><a href="#md:⚡-performance"><span>⚡ <wbr/>Performance</span></a></li><li><ul><li><a href="#md:benchmarks"><span>Benchmarks</span></a></li><li><ul><li><a href="#md:parsing-m3u-file-smallm3u8"><span>Parsing <wbr/>M3<wbr/>U file (small.m3u8)</span></a></li><li><a href="#md:writing-m3u-file-smallm3u8"><span>Writing <wbr/>M3<wbr/>U file (small.m3u8)</span></a></li><li><a href="#md:time-spent-parsing-different-m3u-files"><span>Time spent parsing different <wbr/>M3<wbr/>U files</span></a></li></ul></li></ul></li><li><a href="#md:🎯-future-goals"><span>🎯 <wbr/>Future <wbr/>Goals</span></a></li><li><ul><li><a href="#md:worker-support"><span>Worker <wbr/>Support</span></a></li></ul></li><li><a href="#md:🚫-non-goals"><span>🚫 <wbr/>Non-<wbr/>Goals</span></a></li><li><ul><li><a href="#md:hls-parsing"><span>HLS <wbr/>Parsing</span></a></li></ul></li><li><a href="#md:🤝-contributing"><span>🤝 <wbr/>Contributing</span></a></li><li><a href="#md:📄-license-amp-credit"><span>📄 <wbr/>License &amp; <wbr/>Credit</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="index.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="assets/icons.svg#icon-1"></use></svg><span>@iptv/playlist - v1.1.0</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>
