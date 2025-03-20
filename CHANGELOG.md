@@ -1,5 +1,13 @@
 # @iptv/playlist
 
+## 1.1.1
+
+### Patch Changes
+
+- [#15](https://github.com/ektotv/playlist/pull/15) [`bc57ff7`](https://github.com/ektotv/playlist/commit/bc57ff7af11c28c7dae9b7d72316877a9c934637) Thanks [@evoactivity](https://github.com/evoactivity)! - - Update dev dependencies
+  - Add better comments to the types for intellisense
+  - Internal changes for documentation generation and adding prettier to project
+
 ## 1.1.0
 
 ### Minor Changes
