@@ -1,7 +1,7 @@
 #!/usr/bin/env -S ts-node --esm
 
-import { M3uPlaylist, writeM3U } from "../src/main.js";
-import argparse, { ArgumentParser } from "argparse";
+import { M3uPlaylist, writeM3U } from '../src/main.js';
+import argparse, { ArgumentParser } from 'argparse';
 
 /**
  * Generate a m3u playlist file with the given number of channels and optional headers
@@ -11,15 +11,15 @@ import argparse, { ArgumentParser } from "argparse";
  *   ./generateM3uFile.ts --channels 100 --headers > tests/fixtures/c100-h.m3u8
  */
 const parser = new ArgumentParser({
-  description: "Generate playlist m3u file",
+  description: 'Generate playlist m3u file',
 });
 
-parser.add_argument("-c", "--channels", {
-  help: "Number of channels to generate",
+parser.add_argument('-c', '--channels', {
+  help: 'Number of channels to generate',
   required: true,
 });
-parser.add_argument("-H", "--headers", {
-  help: "If it should include headers",
+parser.add_argument('-H', '--headers', {
+  help: 'If it should include headers',
   action: argparse.BooleanOptionalAction,
 });
 const { channels: numberOfChannels, headers } = parser.parse_args();
@@ -47,11 +47,11 @@ const playlist: M3uPlaylist = {
 
 if (headers) {
   playlist.headers = {
-    "x-tvg-url": "http://example.com/tvg.xml",
+    'x-tvg-url': 'http://example.com/tvg.xml',
   };
 }
 
 const playlistString = writeM3U(playlist);
 
 // @ts-ignore
-process.stdout.write(playlistString + "\n");
+process.stdout.write(playlistString + '\n');

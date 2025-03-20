@@ -1,4 +1,4 @@
-import { M3uPlaylist } from "./types";
+import { M3uPlaylist } from './types';
 
 /**
  * writeM3U
@@ -30,7 +30,7 @@ import { M3uPlaylist } from "./types";
  * ```
  */
 function writeM3U(playlist: M3uPlaylist) {
-  let m3u = "#EXTM3U";
+  let m3u = '#EXTM3U';
 
   if (playlist.headers && Object.entries(playlist.headers)) {
     for (const [key, value] of Object.entries(playlist.headers)) {
@@ -40,8 +40,8 @@ function writeM3U(playlist: M3uPlaylist) {
 
   for (const channel of playlist.channels) {
     if (!channel.url) continue;
-    m3u += "\n#EXTINF:";
-    m3u += channel?.duration ? channel.duration : "-1";
+    m3u += '\n#EXTINF:';
+    m3u += channel?.duration ? channel.duration : '-1';
     if (channel.tvgId) m3u += ` tvg-id="${channel.tvgId}"`;
     if (channel.tvgName) m3u += ` tvg-name="${channel.tvgName}"`;
     if (channel.tvgLanguage) m3u += ` tvg-language="${channel.tvgLanguage}"`;
@@ -61,7 +61,7 @@ function writeM3U(playlist: M3uPlaylist) {
         m3u += ` ${key}="${value}"`;
       }
     }
-    m3u += ",";
+    m3u += ',';
     if (channel.name) m3u += channel.name;
     m3u += `\n${channel.url}`;
   }

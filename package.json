@@ -50,7 +50,9 @@
     "nanobench": "ts-node --esm ./benchmark/nanobench.ts",
     "changeset": "changeset",
     "prerelease": "pnpm run build && pnpm run test:ci",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "format": "prettier --write .",
+    "typedoc": "typedoc"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
@@ -64,6 +66,8 @@
     "iptv-playlist-parser": "^0.13.0",
     "m3u-parser-generator": "^1.4.1",
     "nanobench": "^3.0.0",
+    "prettier": "^3.5.3",
+    "typedoc": "^0.25.4",
     "typescript": "^5.3.2",
     "vite": "^5.0.2",
     "vite-plugin-dts": "^3.6.3",

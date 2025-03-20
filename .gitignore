@@ -26,4 +26,5 @@ dist-ssr
 coverage
 benchmark/results
 tests/fixtures/c*_h.m3u8
+docs/
 

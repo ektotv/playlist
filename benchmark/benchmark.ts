@@ -1,16 +1,16 @@
 #!/usr/bin/env -S ts-node --esm
 
-import fs from "node:fs";
-import path from "node:path";
-import { suite, add, cycle, complete } from "benny";
-import { parseM3U, writeM3U } from "../src/main.js";
-import ippParser from "iptv-playlist-parser";
-import { M3uMedia, M3uParser, M3uPlaylist } from "m3u-parser-generator";
-import { Playlist, Link } from "iptv-playlist-generator";
+import fs from 'node:fs';
+import path from 'node:path';
+import { suite, add, cycle, complete } from 'benny';
+import { parseM3U, writeM3U } from '../src/main.js';
+import ippParser from 'iptv-playlist-parser';
+import { M3uMedia, M3uParser, M3uPlaylist } from 'm3u-parser-generator';
+import { Playlist, Link } from 'iptv-playlist-generator';
 
 const playlistString = fs.readFileSync(
-  path.join(path.resolve(), "tests/fixtures/small.m3u8"),
-  "utf8"
+  path.join(path.resolve(), 'tests/fixtures/small.m3u8'),
+  'utf8',
 );
 
 const options = {
@@ -19,103 +19,103 @@ const options = {
 };
 
 suite(
-  "Playlist Parsing",
+  'Playlist Parsing',
   add(
-    "iptv-playlist-parser",
+    'iptv-playlist-parser',
     () => {
       ippParser.parse(playlistString);
     },
-    options
+    options,
   ),
   add(
-    "@iptv/playlist",
+    '@iptv/playlist',
     () => {
       parseM3U(playlistString);
     },
-    options
+    options,
   ),
   add(
-    "m3u-parser-generator",
+    'm3u-parser-generator',
     () => {
       M3uParser.parse(playlistString);
     },
-    options
+    options,
   ),
   cycle(),
-  complete()
+  complete(),
 );
 
 const playlist = new M3uPlaylist();
-playlist.title = "Test playlist";
+playlist.title = 'Test playlist';
 
-const media1 = new M3uMedia("http://my-stream-ulr.com/playlist.m3u8");
+const media1 = new M3uMedia('http://my-stream-ulr.com/playlist.m3u8');
 media1.attributes = {
-  "tvg-id": "5",
-  "tvg-language": "EN",
-  unknown: "my custom attribute",
+  'tvg-id': '5',
+  'tvg-language': 'EN',
+  unknown: 'my custom attribute',
 };
 media1.duration = 500;
-media1.name = "Test Channel";
-media1.group = "Test Group";
+media1.name = 'Test Channel';
+media1.group = 'Test Group';
 
 playlist.medias.push(media1);
 
 const playlist2 = new Playlist();
 playlist2.header = {
-  "x-tvg-url": "https://example.com/epg.xml",
-  custom: "value",
+  'x-tvg-url': 'https://example.com/epg.xml',
+  custom: 'value',
 };
 
-const link = new Link("http://example.com/stream.m3u8");
-link.title = "CNN (1080p)";
+const link = new Link('http://example.com/stream.m3u8');
+link.title = 'CNN (1080p)';
 link.attrs = {
-  "tvg-id": "CNN.us",
-  "tvg-name": "CNN",
-  "tvg-url": "http://195.154.221.171/epg/guide.xml.gz",
-  "tvg-logo": "http://example.com/logo.png",
-  "group-title": "News",
+  'tvg-id': 'CNN.us',
+  'tvg-name': 'CNN',
+  'tvg-url': 'http://195.154.221.171/epg/guide.xml.gz',
+  'tvg-logo': 'http://example.com/logo.png',
+  'group-title': 'News',
 };
 link.vlcOpts = {
-  "http-referrer": "http://example.com/",
-  "http-user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5)",
+  'http-referrer': 'http://example.com/',
+  'http-user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5)',
 };
 playlist2.links.push(link);
 
 suite(
-  "Playlist Creation",
+  'Playlist Creation',
   add(
-    "iptv-playlist-generator",
+    'iptv-playlist-generator',
     () => {
       playlist2.toString();
     },
-    options
+    options,
   ),
   add(
-    "@iptv/playlist",
+    '@iptv/playlist',
     () => {
       writeM3U({
         channels: [
           {
-            tvgId: "Channel1",
-            tvgName: "Channel 1",
-            tvgLanguage: "English",
-            groupTitle: "News",
-            name: "Channel 1",
-            url: "http://server:port/channel1",
+            tvgId: 'Channel1',
+            tvgName: 'Channel 1',
+            tvgLanguage: 'English',
+            groupTitle: 'News',
+            name: 'Channel 1',
+            url: 'http://server:port/channel1',
           },
         ],
         headers: {},
       });
     },
-    options
+    options,
   ),
   add(
-    "m3u-parser-generator",
+    'm3u-parser-generator',
     () => {
       playlist.getM3uString();
     },
-    options
+    options,
   ),
   cycle(),
-  complete()
+  complete(),
 );
