@@ -53,7 +53,7 @@ yarn add @iptv/playlist
 To use this library in your project, first import the functions you need:
 
 ```typescript
-import { parseM3U, writeM3U } from "@iptv/playlist";
+import { parseM3U, writeM3U } from '@iptv/playlist';
 ```
 
 Then, you can parse an M3U file and receive back an `M3uPlaylist` object:
@@ -108,15 +108,15 @@ You can also generate an M3U file from a `M3uPlaylist` object:
 const playlistObject: M3uPlaylist = {
   channels: [
     {
-      tvgId: "Channel1",
-      tvgName: "Channel 1",
-      tvgLanguage: "English",
-      groupTitle: "News",
+      tvgId: 'Channel1',
+      tvgName: 'Channel 1',
+      tvgLanguage: 'English',
+      groupTitle: 'News',
       duration: -1,
-      name: "Channel 1",
-      url: "http://server:port/channel1",
+      name: 'Channel 1',
+      url: 'http://server:port/channel1',
       extras: {
-        "your-custom-attribute": "your-custom-value",
+        'your-custom-attribute': 'your-custom-value',
       },
     },
   ],

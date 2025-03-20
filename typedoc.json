@@ -1,0 +1,17 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["./src/main.ts", "./src/types.ts"],
+  "basePath": "./src",
+  "out": "./docs",
+  "tsconfig": "./tsconfig.json",
+  "readme": "./README.md",
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeExternals": true,
+  "includeVersion": true,
+  "hideGenerator": false,
+  "theme": "default",
+  "plugin": [],
+  "categoryOrder": ["Core", "API", "*"],
+  "sort": ["alphabetical", "required-first"]
+}
