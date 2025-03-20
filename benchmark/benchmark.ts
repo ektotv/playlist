@@ -8,6 +8,8 @@ import ippParser from 'iptv-playlist-parser';
 import { M3uMedia, M3uParser, M3uPlaylist } from 'm3u-parser-generator';
 import { Playlist, Link } from 'iptv-playlist-generator';
 
+const m3uParser = new M3uParser();
+
 const playlistString = fs.readFileSync(
   path.join(path.resolve(), 'tests/fixtures/small.m3u8'),
   'utf8',
@@ -37,7 +39,7 @@ suite(
   add(
     'm3u-parser-generator',
     () => {
-      M3uParser.parse(playlistString);
+      m3uParser.parse(playlistString);
     },
     options,
   ),
@@ -48,7 +50,7 @@ suite(
 const playlist = new M3uPlaylist();
 playlist.title = 'Test playlist';
 
-const media1 = new M3uMedia('http://my-stream-ulr.com/playlist.m3u8');
+const media1 = new M3uMedia('http://my-stream-url.com/playlist.m3u8');
 media1.attributes = {
   'tvg-id': '5',
   'tvg-language': 'EN',
