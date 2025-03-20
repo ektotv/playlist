@@ -1,50 +1,50 @@
-import { M3uChannel, M3uHeaders, M3uPlaylist } from "./types";
+import { M3uChannel, M3uHeaders, M3uPlaylist } from './types';
 
 const attributeMap = {
-  "tvg-id": "tvgId",
-  "tvg-name": "tvgName",
-  "tvg-language": "tvgLanguage",
-  "tvg-logo": "tvgLogo",
-  "tvg-url": "tvgUrl",
-  "tvg-rec,": "tvgRec",
-  "group-title": "groupTitle",
-  timeshift: "timeshift",
-  catchup: "catchup",
-  "catchup-days": "catchupDays",
-  "catchup-source": "catchupSource",
-  "x-tvg-url": "xTvgUrl",
-  "url-tvg": "urlTvg",
-};
+  'tvg-id': 'tvgId',
+  'tvg-name': 'tvgName',
+  'tvg-language': 'tvgLanguage',
+  'tvg-logo': 'tvgLogo',
+  'tvg-url': 'tvgUrl',
+  'tvg-rec,': 'tvgRec',
+  'group-title': 'groupTitle',
+  timeshift: 'timeshift',
+  catchup: 'catchup',
+  'catchup-days': 'catchupDays',
+  'catchup-source': 'catchupSource',
+  'x-tvg-url': 'xTvgUrl',
+  'url-tvg': 'urlTvg',
+} as const;
 
-const space = " ".charCodeAt(0);
-const hash = "#".charCodeAt(0);
-const equal = "=".charCodeAt(0);
-const colon = ":".charCodeAt(0);
-const comma = ",".charCodeAt(0);
-const dash = "-".charCodeAt(0);
-const one = "1".charCodeAt(0);
-const two = "2".charCodeAt(0);
-const three = "3".charCodeAt(0);
-const four = "4".charCodeAt(0);
-const five = "5".charCodeAt(0);
-const six = "6".charCodeAt(0);
-const seven = "7".charCodeAt(0);
-const eight = "8".charCodeAt(0);
-const nine = "9".charCodeAt(0);
-const zero = "0".charCodeAt(0);
-const newLine = "\n".charCodeAt(0);
-const tab = "\t".charCodeAt(0);
-const carriageReturn = "\r".charCodeAt(0);
-const stringE = "E".charCodeAt(0);
-const stringX = "X".charCodeAt(0);
-const stringT = "T".charCodeAt(0);
-const stringI = "I".charCodeAt(0);
-const stringN = "N".charCodeAt(0);
-const stringF = "F".charCodeAt(0);
-const stringM = "M".charCodeAt(0);
-const stringH = "H".charCodeAt(0);
-const stringh = "h".charCodeAt(0);
-const stringU = "U".charCodeAt(0);
+const space = ' '.charCodeAt(0);
+const hash = '#'.charCodeAt(0);
+const equal = '='.charCodeAt(0);
+const colon = ':'.charCodeAt(0);
+const comma = ','.charCodeAt(0);
+const dash = '-'.charCodeAt(0);
+const one = '1'.charCodeAt(0);
+const two = '2'.charCodeAt(0);
+const three = '3'.charCodeAt(0);
+const four = '4'.charCodeAt(0);
+const five = '5'.charCodeAt(0);
+const six = '6'.charCodeAt(0);
+const seven = '7'.charCodeAt(0);
+const eight = '8'.charCodeAt(0);
+const nine = '9'.charCodeAt(0);
+const zero = '0'.charCodeAt(0);
+const newLine = '\n'.charCodeAt(0);
+const tab = '\t'.charCodeAt(0);
+const carriageReturn = '\r'.charCodeAt(0);
+const stringE = 'E'.charCodeAt(0);
+const stringX = 'X'.charCodeAt(0);
+const stringT = 'T'.charCodeAt(0);
+const stringI = 'I'.charCodeAt(0);
+const stringN = 'N'.charCodeAt(0);
+const stringF = 'F'.charCodeAt(0);
+const stringM = 'M'.charCodeAt(0);
+const stringH = 'H'.charCodeAt(0);
+const stringh = 'h'.charCodeAt(0);
+const stringU = 'U'.charCodeAt(0);
 
 const durationCharCodes = [
   zero,
@@ -85,8 +85,8 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
 
   let currentPosition = 0;
   let currentChannel: M3uChannel = {};
-  let currentAttribute = "";
-  let currentSection: "header" | "channel" | "http" | null = null;
+  let currentAttribute = '';
+  let currentSection: 'header' | 'channel' | 'http' | null = null;
 
   while (currentPosition < m3uFileContents.length) {
     const char = m3uFileContents.charCodeAt(currentPosition);
@@ -99,20 +99,20 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
     ) {
       currentPosition++;
       if (char === newLine) {
-        currentAttribute = "";
+        currentAttribute = '';
       }
       continue;
     }
 
-    let endOfLineIndex = m3uFileContents.indexOf("\n", currentPosition);
+    let endOfLineIndex = m3uFileContents.indexOf('\n', currentPosition);
     if (endOfLineIndex === -1) {
       endOfLineIndex = m3uFileContents.length;
     }
 
     // Parse duration
     if (durationCharCodes.includes(char)) {
-      let indexOfSpace = m3uFileContents.indexOf(" ", currentPosition);
-      let indexOfComma = m3uFileContents.indexOf(",", currentPosition);
+      let indexOfSpace = m3uFileContents.indexOf(' ', currentPosition);
+      let indexOfComma = m3uFileContents.indexOf(',', currentPosition);
       let endOfDurationIndex = indexOfSpace;
 
       if (
@@ -129,7 +129,7 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
 
       currentChannel.duration = parseInt(
         m3uFileContents.slice(currentPosition, endOfDurationIndex),
-        10
+        10,
       );
 
       currentPosition = endOfDurationIndex;
@@ -151,7 +151,7 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
         // Parse the header tag and value
 
         currentPosition += 6;
-        currentSection = "header";
+        currentSection = 'header';
       } else if (
         /* E */ m3uFileContents.charCodeAt(currentPosition + 1) === stringE &&
         /* X */ m3uFileContents.charCodeAt(currentPosition + 2) === stringX &&
@@ -162,7 +162,7 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
         /* : */ m3uFileContents.charCodeAt(currentPosition + 7) === colon
       ) {
         currentPosition += 7;
-        currentSection = "channel";
+        currentSection = 'channel';
         currentChannel = {};
       } else {
         // Comment
@@ -173,7 +173,7 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
 
     if (char === stringh || char === stringH) {
       // http
-      currentSection = "http";
+      currentSection = 'http';
 
       currentChannel.url = m3uFileContents
         .slice(currentPosition, endOfLineIndex)
@@ -187,7 +187,7 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
 
     // Channel name after comma
     if (char === comma) {
-      currentSection = "channel";
+      currentSection = 'channel';
       currentChannel.name = m3uFileContents
         .slice(currentPosition + 1, endOfLineIndex)
         .trim();
@@ -197,11 +197,11 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
     }
 
     if ((char > 64 && char < 91) || (char > 96 && char < 123) || char === 45) {
-      const indexOfNextEquals = m3uFileContents.indexOf("=", currentPosition);
+      const indexOfNextEquals = m3uFileContents.indexOf('=', currentPosition);
 
       currentAttribute = m3uFileContents.slice(
         currentPosition,
-        indexOfNextEquals
+        indexOfNextEquals,
       );
       currentPosition = indexOfNextEquals;
       continue;
@@ -215,18 +215,18 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
       const indexOfNextQuote = m3uFileContents.indexOf('"', currentPosition);
       const attributeValue = m3uFileContents.slice(
         currentPosition,
-        indexOfNextQuote
+        indexOfNextQuote,
       );
       currentPosition = indexOfNextQuote;
 
       const knownAttribute =
         attributeMap[currentAttribute as keyof typeof attributeMap];
       if (knownAttribute) {
-        if (currentSection === "header") {
+        if (currentSection === 'header') {
           headers[knownAttribute] = attributeValue;
         } else {
           currentChannel[
-            knownAttribute as keyof Omit<M3uChannel, "extras" | "duration">
+            knownAttribute as keyof Omit<M3uChannel, 'extras' | 'duration'>
           ] = attributeValue;
         }
       } else {
@@ -234,7 +234,7 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
         currentChannel.extras[currentAttribute] = attributeValue;
       }
 
-      currentAttribute = "";
+      currentAttribute = '';
     }
 
     currentPosition++;

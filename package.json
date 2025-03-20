@@ -46,34 +46,39 @@
     "coverage": "vitest run --coverage",
     "test:ci": "vitest --run --coverage.enabled --coverage.reporter='text-summary'",
     "benchmark": "vitest bench",
-    "benny": "ts-node --esm ./benchmark/benchmark.ts",
-    "nanobench": "ts-node --esm ./benchmark/nanobench.ts",
+    "benny": "tsx ./benchmark/benchmark.ts",
+    "nanobench": "tsx ./benchmark/nanobench.ts",
     "changeset": "changeset",
     "prerelease": "pnpm run build && pnpm run test:ci",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "format": "prettier --write .",
+    "typedoc": "typedoc"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.8",
-    "@changesets/cli": "^2.26.2",
-    "@types/argparse": "^2.0.14",
-    "@types/node": "^20.10.0",
-    "@vitest/coverage-v8": "^0.34.6",
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.28.1",
+    "@types/argparse": "^2.0.17",
+    "@types/node": "^22.13.10",
+    "@vitest/coverage-v8": "^3.0.9",
     "argparse": "^2.0.1",
     "benny": "^3.7.1",
     "iptv-playlist-generator": "^0.1.5",
-    "iptv-playlist-parser": "^0.13.0",
-    "m3u-parser-generator": "^1.4.1",
+    "iptv-playlist-parser": "^0.14.0",
+    "m3u-parser-generator": "^5.0.1",
     "nanobench": "^3.0.0",
-    "typescript": "^5.3.2",
-    "vite": "^5.0.2",
-    "vite-plugin-dts": "^3.6.3",
-    "vitest": "^0.34.6"
+    "prettier": "^3.5.3",
+    "tsx": "^4.19.3",
+    "typedoc": "^0.28.1",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2",
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.0.9"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ektotv/playlist.git"
   },
   "volta": {
-    "node": "20.3.1"
+    "node": "22.14.0"
   }
 }
