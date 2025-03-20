@@ -2,4 +2,6 @@
 '@iptv/playlist': patch
 ---
 
-Internal changes for documentation generation and adding prettier to project
+- Update dev dependencies
+- Add better comments to the types for intellisense
+- Internal changes for documentation generation and adding prettier to project
