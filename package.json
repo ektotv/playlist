@@ -46,8 +46,8 @@
     "coverage": "vitest run --coverage",
     "test:ci": "vitest --run --coverage.enabled --coverage.reporter='text-summary'",
     "benchmark": "vitest bench",
-    "benny": "ts-node --esm ./benchmark/benchmark.ts",
-    "nanobench": "ts-node --esm ./benchmark/nanobench.ts",
+    "benny": "tsx ./benchmark/benchmark.ts",
+    "nanobench": "tsx ./benchmark/nanobench.ts",
     "changeset": "changeset",
     "prerelease": "pnpm run build && pnpm run test:ci",
     "release": "changeset publish",
@@ -67,6 +67,7 @@
     "m3u-parser-generator": "^1.4.1",
     "nanobench": "^3.0.0",
     "prettier": "^3.5.3",
+    "tsx": "^4.19.3",
     "typedoc": "^0.25.4",
     "typescript": "^5.3.2",
     "vite": "^5.0.2",
@@ -78,6 +79,6 @@
     "url": "https://github.com/ektotv/playlist.git"
   },
   "volta": {
-    "node": "20.3.1"
+    "node": "22.14.0"
   }
 }
