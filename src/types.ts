@@ -43,6 +43,7 @@ export type M3uChannel = {
   groupTitle?: string;
   /** URL for the channel's streaming content */
   url?: string;
+  urls?: string[];
   /** Name of the channel */
   name?: string;
   /** Timeshift value for the channel */

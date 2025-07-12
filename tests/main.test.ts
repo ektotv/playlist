@@ -139,6 +139,7 @@ describe('Parses a m3u file', () => {
   test('Correctly parses the first channel', () => {
     const parsed = parseM3U(fileAsString);
     const firstChannel = parsed.channels[0];
+
     expect(firstChannel).toEqual({
       tvgId: 'Channel1',
       tvgName: 'Channel 1',
@@ -146,6 +147,7 @@ describe('Parses a m3u file', () => {
       duration: -1,
       groupTitle: 'News',
       url: 'http://server:port/channel1',
+      urls: ['http://server:port/channel1'],
       name: 'Channel 1',
     });
   });
@@ -283,6 +285,146 @@ describe('Parses a m3u file', () => {
     const channels = parsed.channels;
 
     expect(channels.length).toBe(0);
+  });
+
+  test('Parsing random strings', () => {
+    const iptvContent = `#EXTM3U
+      #EXTINF:-1 tvg-id="Channel1" tvg-name="Channel 1",Channel 1
+      http://server:port/channel1
+      random string without any channel info
+      #EXTINF:-1 tvg-id="Channel2" tvg-name="Channel 2",Channel 2
+      http://server:port/channel2`;
+
+    const parsed = parseM3U(iptvContent);
+    const channels = parsed.channels;
+
+    // Verify the number of channels parsed
+    expect(channels.length).toBe(2);
+
+    // Verify properties of the first channel
+    expect(channels[0].tvgId).toBe('Channel1');
+    expect(channels[0].tvgName).toBe('Channel 1');
+    expect(channels[0].url).toBe('http://server:port/channel1');
+
+    // Verify properties of the second channel
+    expect(channels[1].tvgId).toBe('Channel2');
+    expect(channels[1].tvgName).toBe('Channel 2');
+    expect(channels[1].url).toBe('http://server:port/channel2');
+  });
+
+  test('Parsing random strings with special characters', () => {
+    const iptvContent = `some random
+text
+
+#EXTINF:-1 tvg-id="Channel1" tvg-name="Channel 1",Channel 1
+      http://server:port/channel1
+
+
+what happens !
+
+hhelo.com
+`;
+
+    const parsed = parseM3U(iptvContent);
+    const channels = parsed.channels;
+
+    // Verify the number of channels parsed
+    expect(channels.length).toBe(1); // No valid channels should be parsed
+
+    // Verify that no headers are present
+    expect(parsed.headers).toEqual({});
+
+    // Verify properties of the first channel
+    expect(channels[0].tvgId).toBe('Channel1');
+    expect(channels[0].tvgName).toBe('Channel 1');
+    expect(channels[0].url).toBe('http://server:port/channel1');
+    expect(channels[0].name).toBe('Channel 1');
+  });
+
+  test("Doesn't add random urls from data", () => {
+    const iptvContent = `some
+
+    random
+
+    http://url.com
+
+    `;
+
+    const parsed = parseM3U(iptvContent);
+    const channels = parsed.channels;
+
+    // Verify the number of channels parsed
+    expect(channels.length).toBe(0);
+
+    // Verify that no headers are present
+    expect(parsed.headers).toEqual({});
+
+    // Verify that no channels were added
+    expect(channels).toEqual([]);
+  });
+
+  test('Handles empty file with no channels', () => {
+    const iptvContent = ``;
+
+    const parsed = parseM3U(iptvContent);
+    const channels = parsed.channels;
+
+    // Verify the number of channels parsed
+    expect(channels.length).toBe(0);
+
+    // Verify that no headers are present
+    expect(parsed.headers).toEqual({});
+  });
+
+  test('Handles two extinf lines', () => {
+    const iptvContent = `#EXTM3U
+      #EXTINF:-1 tvg-id="Channel1" tvg-name="Channel 1",Channel 1
+      #EXTINF:-1 tvg-id="Channel2" tvg-name="Channel 2",Channel 2
+      http://server:port/channel1`;
+
+    const parsed = parseM3U(iptvContent);
+    const channels = parsed.channels;
+
+    // Verify the number of channels parsed
+    expect(channels.length).toBe(1);
+
+    // Verify properties of the second channel
+    expect(channels[0].tvgId).toBe('Channel2');
+    expect(channels[0].tvgName).toBe('Channel 2');
+  });
+
+  test('Handles multiple urls', () => {
+    const iptvContent = `#EXTM3U
+      #EXTINF:-1 tvg-id="Channel1" tvg-name="Channel 1",Channel 1
+      http://server:port/channel1
+      http://server:port/channel1a
+      http://server:port/channel1b`;
+
+    const parsed = parseM3U(iptvContent);
+    const channels = parsed.channels;
+
+    console.log(parsed);
+
+    // Verify the number of channels parsed
+    expect(channels.length).toBe(1);
+
+    // Verify properties of the first channel
+    expect(channels[0].tvgId).toBe('Channel1');
+    expect(channels[0].tvgName).toBe('Channel 1');
+    expect(channels[0].url).toBe('http://server:port/channel1');
+  });
+
+  test('Handles empty file with header', () => {
+    const iptvContent = `#EXTM3U`;
+
+    const parsed = parseM3U(iptvContent);
+    const channels = parsed.channels;
+
+    // Verify the number of channels parsed
+    expect(channels.length).toBe(0);
+
+    // Verify that no headers are present
+    expect(parsed.headers).toEqual({});
   });
 
   test('Parsing of playlists with header tags', () => {
