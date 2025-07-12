@@ -273,7 +273,10 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
           headers[knownAttribute] = attributeValue;
         } else {
           currentChannel[
-            knownAttribute as keyof Omit<M3uChannel, 'extras' | 'duration'>
+            knownAttribute as keyof Omit<
+              M3uChannel,
+              'extras' | 'duration' | 'urls'
+            >
           ] = attributeValue;
         }
       } else {
