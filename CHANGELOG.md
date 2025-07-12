@@ -1,5 +1,12 @@
 # @iptv/playlist
 
+## 1.2.0
+
+### Minor Changes
+
+- [#17](https://github.com/ektotv/playlist/pull/17) [`e63b861`](https://github.com/ektotv/playlist/commit/e63b8614bc2a1598a7babe2552700bba514f88a2) Thanks [@evoactivity](https://github.com/evoactivity)! - - Fixes infinite loop on random strings
+  - Handles multiple urls with a new urls array
+
 ## 1.1.1
 
 ### Patch Changes
