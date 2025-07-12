@@ -11,6 +11,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 1",
       "url": "http://server:port/channel1",
+      "urls": [
+        "http://server:port/channel1",
+      ],
     },
     {
       "duration": -1,
@@ -20,6 +23,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel2logo.png",
       "tvgName": "Channel 2",
       "url": "http://server:port/channel2",
+      "urls": [
+        "http://server:port/channel2",
+      ],
     },
     {
       "duration": -1,
@@ -29,6 +35,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 3",
       "url": "http://server:port/channel3",
+      "urls": [
+        "http://server:port/channel3",
+      ],
     },
     {
       "duration": -1,
@@ -39,6 +48,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel4logo.png",
       "tvgName": "Channel 4",
       "url": "http://server:port/channel4",
+      "urls": [
+        "http://server:port/channel4",
+      ],
     },
     {
       "duration": 300,
@@ -47,6 +59,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgId": "Channel5",
       "tvgName": "Channel 5",
       "url": "http://server:port/channel5",
+      "urls": [
+        "http://server:port/channel5",
+      ],
     },
     {
       "duration": -1,
@@ -57,6 +72,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel6logo.png",
       "tvgName": "Channel 6",
       "url": "http://server:port/channel6",
+      "urls": [
+        "http://server:port/channel6",
+      ],
     },
     {
       "duration": -1,
@@ -66,6 +84,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel7logo.png",
       "tvgName": "Channel 7",
       "url": "http://server:port/channel7",
+      "urls": [
+        "http://server:port/channel7",
+      ],
     },
     {
       "duration": -1,
@@ -76,6 +97,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel8logo.png",
       "tvgName": "Channel 8",
       "url": "http://server:port/channel8",
+      "urls": [
+        "http://server:port/channel8",
+      ],
     },
     {
       "duration": -1,
@@ -86,6 +110,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel9logo.png",
       "tvgName": "Channel 9",
       "url": "http://server:port/channel9",
+      "urls": [
+        "http://server:port/channel9",
+      ],
     },
     {
       "duration": -1,
@@ -95,6 +122,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 10",
       "url": "http://server:port/channel10",
+      "urls": [
+        "http://server:port/channel10",
+      ],
     },
     {
       "duration": -1,
@@ -104,6 +134,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel11logo.png",
       "tvgName": "Channel 11",
       "url": "http://server:port/channel11",
+      "urls": [
+        "http://server:port/channel11",
+      ],
     },
     {
       "duration": -1,
@@ -114,6 +147,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel12logo.png",
       "tvgName": "Channel 12",
       "url": "http://server:port/channel12",
+      "urls": [
+        "http://server:port/channel12",
+      ],
     },
     {
       "duration": -1,
@@ -123,6 +159,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 13",
       "url": "http://server:port/channel13",
+      "urls": [
+        "http://server:port/channel13",
+      ],
     },
     {
       "duration": -1,
@@ -131,6 +170,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgId": "Channel14",
       "tvgName": "Channel 14",
       "url": "http://server:port/channel14",
+      "urls": [
+        "http://server:port/channel14",
+      ],
     },
     {
       "duration": -1,
@@ -141,6 +183,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel15logo.png",
       "tvgName": "Channel 15",
       "url": "http://server:port/channel15",
+      "urls": [
+        "http://server:port/channel15",
+      ],
     },
     {
       "duration": -1,
@@ -150,6 +195,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 16",
       "url": "http://server:port/channel16",
+      "urls": [
+        "http://server:port/channel16",
+      ],
     },
     {
       "duration": -1,
@@ -160,6 +208,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel17logo.png",
       "tvgName": "Channel 17",
       "url": "http://server:port/channel17",
+      "urls": [
+        "http://server:port/channel17",
+      ],
     },
     {
       "duration": -1,
@@ -168,6 +219,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgId": "Channel18",
       "tvgName": "Channel 18",
       "url": "http://server:port/channel18",
+      "urls": [
+        "http://server:port/channel18",
+      ],
     },
     {
       "duration": -1,
@@ -177,6 +231,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel19logo.png",
       "tvgName": "Channel 19",
       "url": "http://server:port/channel19",
+      "urls": [
+        "http://server:port/channel19",
+      ],
     },
     {
       "duration": -1,
@@ -187,6 +244,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel20logo.png",
       "tvgName": "Channel 20",
       "url": "http://server:port/channel20",
+      "urls": [
+        "http://server:port/channel20",
+      ],
     },
     {
       "duration": -1,
@@ -197,6 +257,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel21logo.png",
       "tvgName": "Channel 21",
       "url": "http://server:port/channel21",
+      "urls": [
+        "http://server:port/channel21",
+      ],
     },
     {
       "duration": -1,
@@ -205,6 +268,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgId": "Channel22",
       "tvgName": "Channel 22",
       "url": "http://server:port/channel22",
+      "urls": [
+        "http://server:port/channel22",
+      ],
     },
     {
       "duration": -1,
@@ -214,6 +280,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 23",
       "url": "http://server:port/channel23",
+      "urls": [
+        "http://server:port/channel23",
+      ],
     },
     {
       "duration": -1,
@@ -224,6 +293,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel24logo.png",
       "tvgName": "Channel 24",
       "url": "http://server:port/channel24",
+      "urls": [
+        "http://server:port/channel24",
+      ],
     },
     {
       "duration": -1,
@@ -233,6 +305,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel25logo.png",
       "tvgName": "Channel 25",
       "url": "http://server:port/channel25",
+      "urls": [
+        "http://server:port/channel25",
+      ],
     },
     {
       "duration": -1,
@@ -243,6 +318,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel26logo.png",
       "tvgName": "Channel 26",
       "url": "http://server:port/channel26",
+      "urls": [
+        "http://server:port/channel26",
+      ],
     },
     {
       "duration": -1,
@@ -253,6 +331,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel27logo.png",
       "tvgName": "Channel 27",
       "url": "http://server:port/channel27",
+      "urls": [
+        "http://server:port/channel27",
+      ],
     },
     {
       "duration": -1,
@@ -261,6 +342,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgId": "Channel28",
       "tvgName": "Channel 28",
       "url": "http://server:port/channel28",
+      "urls": [
+        "http://server:port/channel28",
+      ],
     },
     {
       "duration": -1,
@@ -270,6 +354,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 29",
       "url": "http://server:port/channel29",
+      "urls": [
+        "http://server:port/channel29",
+      ],
     },
     {
       "duration": -1,
@@ -280,6 +367,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel30logo.png",
       "tvgName": "Channel 30",
       "url": "http://server:port/channel30",
+      "urls": [
+        "http://server:port/channel30",
+      ],
     },
     {
       "duration": -1,
@@ -289,6 +379,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel31logo.png",
       "tvgName": "Channel 31",
       "url": "http://server:port/channel31",
+      "urls": [
+        "http://server:port/channel31",
+      ],
     },
     {
       "duration": -1,
@@ -299,6 +392,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel32logo.png",
       "tvgName": "Channel 32",
       "url": "http://server:port/channel32",
+      "urls": [
+        "http://server:port/channel32",
+      ],
     },
     {
       "duration": -1,
@@ -309,6 +405,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel33logo.png",
       "tvgName": "Channel 33",
       "url": "http://server:port/channel33",
+      "urls": [
+        "http://server:port/channel33",
+      ],
     },
     {
       "duration": -1,
@@ -317,6 +416,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgId": "Channel34",
       "tvgName": "Channel 34",
       "url": "http://server:port/channel34",
+      "urls": [
+        "http://server:port/channel34",
+      ],
     },
     {
       "duration": -1,
@@ -326,6 +428,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 35",
       "url": "http://server:port/channel35",
+      "urls": [
+        "http://server:port/channel35",
+      ],
     },
     {
       "duration": -1,
@@ -336,6 +441,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel36logo.png",
       "tvgName": "Channel 36",
       "url": "http://server:port/channel36",
+      "urls": [
+        "http://server:port/channel36",
+      ],
     },
     {
       "duration": -1,
@@ -345,6 +453,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel37logo.png",
       "tvgName": "Channel 37",
       "url": "http://server:port/channel37",
+      "urls": [
+        "http://server:port/channel37",
+      ],
     },
     {
       "duration": -1,
@@ -355,6 +466,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel38logo.png",
       "tvgName": "Channel 38",
       "url": "http://server:port/channel38",
+      "urls": [
+        "http://server:port/channel38",
+      ],
     },
     {
       "duration": -1,
@@ -365,6 +479,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel39logo.png",
       "tvgName": "Channel 39",
       "url": "http://server:port/channel39",
+      "urls": [
+        "http://server:port/channel39",
+      ],
     },
     {
       "duration": -1,
@@ -373,6 +490,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgId": "Channel40",
       "tvgName": "Channel 40",
       "url": "http://server:port/channel40",
+      "urls": [
+        "http://server:port/channel40",
+      ],
     },
     {
       "duration": -1,
@@ -382,6 +502,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 41",
       "url": "http://server:port/channel41",
+      "urls": [
+        "http://server:port/channel41",
+      ],
     },
     {
       "duration": -1,
@@ -392,6 +515,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel42logo.png",
       "tvgName": "Channel 42",
       "url": "http://server:port/channel42",
+      "urls": [
+        "http://server:port/channel42",
+      ],
     },
     {
       "duration": -1,
@@ -401,6 +527,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel43logo.png",
       "tvgName": "Channel 43",
       "url": "http://server:port/channel43",
+      "urls": [
+        "http://server:port/channel43",
+      ],
     },
     {
       "duration": -1,
@@ -411,6 +540,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel44logo.png",
       "tvgName": "Channel 44",
       "url": "http://server:port/channel44",
+      "urls": [
+        "http://server:port/channel44",
+      ],
     },
     {
       "duration": -1,
@@ -421,6 +553,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel45logo.png",
       "tvgName": "Channel 45",
       "url": "http://server:port/channel45",
+      "urls": [
+        "http://server:port/channel45",
+      ],
     },
     {
       "duration": -1,
@@ -429,6 +564,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgId": "Channel46",
       "tvgName": "Channel 46",
       "url": "http://server:port/channel46",
+      "urls": [
+        "http://server:port/channel46",
+      ],
     },
     {
       "duration": -1,
@@ -438,6 +576,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLanguage": "English",
       "tvgName": "Channel 47",
       "url": "http://server:port/channel47",
+      "urls": [
+        "http://server:port/channel47",
+      ],
     },
     {
       "duration": -1,
@@ -448,6 +589,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel48logo.png",
       "tvgName": "Channel 48",
       "url": "http://server:port/channel48",
+      "urls": [
+        "http://server:port/channel48",
+      ],
     },
     {
       "duration": -1,
@@ -457,6 +601,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel49logo.png",
       "tvgName": "Channel 49",
       "url": "http://server:port/channel49",
+      "urls": [
+        "http://server:port/channel49",
+      ],
     },
     {
       "duration": -1,
@@ -467,6 +614,9 @@ exports[`Parses a m3u file > Fully parses to a JS object 1`] = `
       "tvgLogo": "http://website.com/channel50logo.png",
       "tvgName": "Channel 50",
       "url": "http://server:port/channel50",
+      "urls": [
+        "http://server:port/channel50",
+      ],
     },
   ],
   "headers": {

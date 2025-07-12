@@ -43,8 +43,11 @@ const stringN = 'N'.charCodeAt(0);
 const stringF = 'F'.charCodeAt(0);
 const stringM = 'M'.charCodeAt(0);
 const stringH = 'H'.charCodeAt(0);
-const stringh = 'h'.charCodeAt(0);
+const stringP = 'P'.charCodeAt(0);
 const stringU = 'U'.charCodeAt(0);
+const stringh = 'h'.charCodeAt(0);
+const stringp = 'p'.charCodeAt(0);
+const stringt = 't'.charCodeAt(0);
 
 const durationCharCodes = [
   zero,
@@ -88,8 +91,19 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
   let currentAttribute = '';
   let currentSection: 'header' | 'channel' | 'http' | null = null;
 
+  let lastCurrentPosition: number | null = null;
+
   while (currentPosition < m3uFileContents.length) {
     const char = m3uFileContents.charCodeAt(currentPosition);
+    // console.log(
+    //   `Parsing character at position ${currentPosition}: ${String.fromCharCode(char)}`,
+    // );
+    if (currentPosition === lastCurrentPosition) {
+      // Prevent infinite loop
+      throw new Error('Infinite loop detected while parsing M3U file');
+    }
+
+    lastCurrentPosition = currentPosition;
 
     if (
       char === space ||
@@ -141,25 +155,25 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
       currentSection = null;
       // EXTM3U
       if (
-        /* E */ m3uFileContents.charCodeAt(currentPosition + 1) === stringE &&
-        /* X */ m3uFileContents.charCodeAt(currentPosition + 2) === stringX &&
-        /* T */ m3uFileContents.charCodeAt(currentPosition + 3) === stringT &&
-        /* M */ m3uFileContents.charCodeAt(currentPosition + 4) === stringM &&
-        /* 3 */ m3uFileContents.charCodeAt(currentPosition + 5) === three &&
-        /* U */ m3uFileContents.charCodeAt(currentPosition + 6) === stringU
+        m3uFileContents.charCodeAt(currentPosition + 1) === stringE &&
+        m3uFileContents.charCodeAt(currentPosition + 2) === stringX &&
+        m3uFileContents.charCodeAt(currentPosition + 3) === stringT &&
+        m3uFileContents.charCodeAt(currentPosition + 4) === stringM &&
+        m3uFileContents.charCodeAt(currentPosition + 5) === three &&
+        m3uFileContents.charCodeAt(currentPosition + 6) === stringU
       ) {
         // Parse the header tag and value
 
         currentPosition += 6;
         currentSection = 'header';
       } else if (
-        /* E */ m3uFileContents.charCodeAt(currentPosition + 1) === stringE &&
-        /* X */ m3uFileContents.charCodeAt(currentPosition + 2) === stringX &&
-        /* T */ m3uFileContents.charCodeAt(currentPosition + 3) === stringT &&
-        /* I */ m3uFileContents.charCodeAt(currentPosition + 4) === stringI &&
-        /* N */ m3uFileContents.charCodeAt(currentPosition + 5) === stringN &&
-        /* F */ m3uFileContents.charCodeAt(currentPosition + 6) === stringF &&
-        /* : */ m3uFileContents.charCodeAt(currentPosition + 7) === colon
+        m3uFileContents.charCodeAt(currentPosition + 1) === stringE &&
+        m3uFileContents.charCodeAt(currentPosition + 2) === stringX &&
+        m3uFileContents.charCodeAt(currentPosition + 3) === stringT &&
+        m3uFileContents.charCodeAt(currentPosition + 4) === stringI &&
+        m3uFileContents.charCodeAt(currentPosition + 5) === stringN &&
+        m3uFileContents.charCodeAt(currentPosition + 6) === stringF &&
+        m3uFileContents.charCodeAt(currentPosition + 7) === colon
       ) {
         currentPosition += 7;
         currentSection = 'channel';
@@ -172,16 +186,41 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
     }
 
     if (char === stringh || char === stringH) {
+      if (
+        // http
+        !(
+          (m3uFileContents.charCodeAt(currentPosition + 1) === stringt ||
+            m3uFileContents.charCodeAt(currentPosition + 1) === stringT) &&
+          (m3uFileContents.charCodeAt(currentPosition + 2) === stringt ||
+            m3uFileContents.charCodeAt(currentPosition + 2) === stringT) &&
+          (m3uFileContents.charCodeAt(currentPosition + 3) === stringp ||
+            m3uFileContents.charCodeAt(currentPosition + 3) === stringP)
+        ) ||
+        !(currentChannel.name || currentChannel.tvgName || currentChannel.tvgId)
+      ) {
+        currentPosition = endOfLineIndex;
+        continue;
+      }
+
       // http
       currentSection = 'http';
 
-      currentChannel.url = m3uFileContents
+      const foundUrl = m3uFileContents
         .slice(currentPosition, endOfLineIndex)
         .trim();
+
+      if (!currentChannel.url) {
+        currentChannel.url = foundUrl;
+      }
+
+      if (!currentChannel.urls) {
+        currentChannel.urls = [];
+      }
+
+      currentChannel.urls = [...currentChannel.urls, foundUrl];
       currentPosition = endOfLineIndex;
 
-      channels.push(currentChannel);
-      currentChannel = {};
+      channels.indexOf(currentChannel) === -1 && channels.push(currentChannel);
       continue;
     }
 
@@ -198,6 +237,14 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
 
     if ((char > 64 && char < 91) || (char > 96 && char < 123) || char === 45) {
       const indexOfNextEquals = m3uFileContents.indexOf('=', currentPosition);
+
+      if (indexOfNextEquals === -1 || indexOfNextEquals > endOfLineIndex) {
+        // No equals sign found or it is after the end of the line
+        // Means we are not in a valid attribute
+        currentPosition = endOfLineIndex;
+        currentAttribute = '';
+        continue;
+      }
 
       currentAttribute = m3uFileContents.slice(
         currentPosition,
