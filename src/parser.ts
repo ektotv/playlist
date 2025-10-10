@@ -126,26 +126,26 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
       // Find potential delimiters that mark the end of the duration value
       let indexOfSpace = m3uFileContents.indexOf(' ', currentPosition);
       let indexOfComma = m3uFileContents.indexOf(',', currentPosition);
-      // Start by assuming space is the end of the duration
-      let endOfDurationIndex = indexOfSpace;
+      let endOfDurationIndex = -1;
 
-      // If no space found, set it to the end of the line
-      // as this will then use the comma as the delimiter
-      if (indexOfSpace === -1) {
-        indexOfSpace = endOfLineIndex;
+      // If a comma exists, use it as the end delimiter
+      if (indexOfComma > -1) {
+        endOfDurationIndex = indexOfComma;
       }
 
-      // If both space and comma exist, and the space comes AFTER the comma,
-      // then use the comma as the end delimiter to avoid including the channel name
-      // Format: "#EXTINF:120,Channel Name With Spaces"
-      //                     ^comma  ^spaces in channel name
-      // We want to stop at the comma, not get confused by spaces in the channel name
+      // If both space and comma exist, and the space comes before the comma,
+      // then use the space as the end delimiter to avoid including the attributes
       if (
         indexOfSpace > -1 &&
         indexOfComma > -1 &&
-        indexOfSpace > indexOfComma
+        indexOfSpace < indexOfComma
       ) {
-        endOfDurationIndex = indexOfComma;
+        endOfDurationIndex = indexOfSpace;
+      }
+
+      // If there is no comma, but there is a space, use the space
+      if (indexOfComma === -1 && indexOfSpace > -1) {
+        endOfDurationIndex = indexOfSpace;
       }
 
       // Final fallback: if no valid delimiter found, use end of line
