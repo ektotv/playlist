@@ -1,0 +1,7 @@
+#EXTM3U
+#EXTINF:-1,Channel Name
+http://some.url/stream
+#EXTINF:-1,Something Else
+http://some.url/stream2
+#EXTINF:-1,Third_Channel
+http://some.url/stream3
