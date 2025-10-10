@@ -95,9 +95,6 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
 
   while (currentPosition < m3uFileContents.length) {
     const char = m3uFileContents.charCodeAt(currentPosition);
-    // console.log(
-    //   `Parsing character at position ${currentPosition}: ${String.fromCharCode(char)}`,
-    // );
     if (currentPosition === lastCurrentPosition) {
       // Prevent infinite loop
       throw new Error('Infinite loop detected while parsing M3U file');
@@ -123,29 +120,46 @@ function parseM3U(m3uFileContents: string): M3uPlaylist {
       endOfLineIndex = m3uFileContents.length;
     }
 
-    // Parse duration
+    // Parse duration from #EXTINF lines
+    // Duration appears after colon and before space/comma: "#EXTINF:120 tvg-id=..." or "#EXTINF:120,Channel Name"
     if (durationCharCodes.includes(char)) {
+      // Find potential delimiters that mark the end of the duration value
       let indexOfSpace = m3uFileContents.indexOf(' ', currentPosition);
       let indexOfComma = m3uFileContents.indexOf(',', currentPosition);
-      let endOfDurationIndex = indexOfSpace;
+      let endOfDurationIndex = -1;
 
-      if (
-        indexOfSpace > -1 &&
-        indexOfComma > -1 &&
-        indexOfSpace > indexOfComma
-      ) {
+      // If a comma exists, use it as the end delimiter
+      if (indexOfComma > -1) {
         endOfDurationIndex = indexOfComma;
       }
 
+      // If both space and comma exist, and the space comes before the comma,
+      // then use the space as the end delimiter to avoid including the attributes
+      if (
+        indexOfSpace > -1 &&
+        indexOfComma > -1 &&
+        indexOfSpace < indexOfComma
+      ) {
+        endOfDurationIndex = indexOfSpace;
+      }
+
+      // If there is no comma, but there is a space, use the space
+      if (indexOfComma === -1 && indexOfSpace > -1) {
+        endOfDurationIndex = indexOfSpace;
+      }
+
+      // Final fallback: if no valid delimiter found, use end of line
       if (endOfDurationIndex === -1) {
         endOfDurationIndex = endOfLineIndex;
       }
 
+      // Extract and parse the duration number from the determined range
       currentChannel.duration = parseInt(
         m3uFileContents.slice(currentPosition, endOfDurationIndex),
         10,
       );
 
+      // Move position to after the duration value
       currentPosition = endOfDurationIndex;
       continue;
     }

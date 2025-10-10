@@ -10,6 +10,10 @@ const commentsFileAsString = fs.readFileSync(`./tests/fixtures/comments.m3u8`, {
   encoding: 'utf-8',
 });
 
+const basicFileAsString = fs.readFileSync(`./tests/fixtures/basic.m3u`, {
+  encoding: 'utf-8',
+});
+
 // const largePlaylist = fs.readFileSync(`./tests/fixtures/large.m3u8`, {
 //   encoding: "utf-8",
 // });
@@ -402,8 +406,6 @@ hhelo.com
 
     const parsed = parseM3U(iptvContent);
     const channels = parsed.channels;
-
-    console.log(parsed);
 
     // Verify the number of channels parsed
     expect(channels.length).toBe(1);
@@ -954,5 +956,15 @@ hhelo.com
 
     // Ensure the correct number of channels is parsed
     expect(parsed.channels.length).toBe(1);
+  });
+
+  test('Fix for bug where no spaces between extinf duration and channel name stops parsing', () => {
+    const parsed = parseM3U(basicFileAsString);
+
+    expect(parsed.channels.length).toBe(3);
+    expect(parsed.channels[0].name).toBe('Channel Name');
+    expect(parsed.channels[1].name).toBe('Something Else');
+    expect(parsed.channels[2].name).toBe('Third_Channel');
+    expect(parsed.headers).toEqual({});
   });
 });
