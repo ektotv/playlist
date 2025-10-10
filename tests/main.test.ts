@@ -960,10 +960,7 @@ hhelo.com
 
   test('Fix for bug where no spaces between extinf duration and channel name stops parsing', () => {
     const parsed = parseM3U(basicFileAsString);
-    console.log('number of channels is', parsed.channels.length);
-    console.log(parsed);
 
-    // Ensure the correct number of channels is parsed
     expect(parsed.channels.length).toBe(3);
     expect(parsed.channels[0].name).toBe('Channel Name');
     expect(parsed.channels[1].name).toBe('Something Else');
