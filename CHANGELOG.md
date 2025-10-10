@@ -1,5 +1,11 @@
 # @iptv/playlist
 
+## 1.2.1
+
+### Patch Changes
+
+- [#19](https://github.com/ektotv/playlist/pull/19) [`ec4ba5b`](https://github.com/ektotv/playlist/commit/ec4ba5b1bcbc26e95431ba4f11269baefb1cb9af) Thanks [@evoactivity](https://github.com/evoactivity)! - Fixes parsing bug when no spaces exist on an extinf line resulting in that entry being ignored
+
 ## 1.2.0
 
 ### Minor Changes
